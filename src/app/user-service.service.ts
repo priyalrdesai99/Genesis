@@ -16,7 +16,7 @@ interface IEmployee{
     email:string;
 }
 @Injectable({
- // providedIn: 'root'
+  providedIn: 'root'
 })
 export class UserServiceService {
   private _url :string = "http://localhost:8000/emp"
