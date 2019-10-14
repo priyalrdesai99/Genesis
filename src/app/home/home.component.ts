@@ -9,7 +9,8 @@ import { UserServiceService } from '../user-service.service';
 export class HomeComponent implements OnInit {
 
   constructor(users:UserServiceService) {
-    console.log(users.getEmployees); 
+    
+    users.getEmployees().subscribe(x => console.log( x)); 
    }
 
   ngOnInit() {

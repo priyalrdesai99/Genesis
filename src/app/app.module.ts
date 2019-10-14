@@ -13,6 +13,7 @@ import { LoggedInComponent } from './logged-in/logged-in.component';
 import { PlanSettingsComponent } from './plan-settings/plan-settings.component';
 import { PreviewComponent } from './preview/preview.component';
 import { UserServiceService } from './user-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserServiceService } from './user-service.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [UserServiceService],
   bootstrap: [AppComponent]
