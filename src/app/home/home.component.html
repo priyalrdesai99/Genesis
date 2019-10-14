@@ -1,0 +1,569 @@
+<!-- <head>
+    <meta charset="utf-8" />
+    <title>Genesis:Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$("img").click(function () {
+            //    console.log("hello");
+            //    alert("clicked");
+            //});
+
+            $('#i1').click(function () {
+
+                console.log("helo");
+                $('html, body').animate({
+                    scrollTop: $("#home").offset().top
+                }, 2000);
+            });
+            $('#i2').click(function () {
+
+console.log("helo");
+$('html, body').animate({
+    scrollTop: $("#aboutus").offset().top
+}, 2000);
+});
+$('#i3').click(function () {
+
+console.log("helo");
+$('html, body').animate({
+    scrollTop: $("#templates").offset().top
+}, 2000);
+});
+$('#i4').click(function () {
+
+console.log("helo");
+$('html, body').animate({
+    scrollTop: $("#prices").offset().top
+}, 2000);
+});
+$('#i5').click(function () {
+
+console.log("helo");
+$('html, body').animate({
+    scrollTop: $("#feedback").offset().top
+}, 2000);
+});
+        });
+
+    </script>
+    <style>
+/*    Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+    body {font-size: 8px;}
+  }
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {  
+    body {font-size: 10px;}
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    body {font-size: 16px;}
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {  
+    body {font-size: 20px;}
+  }
+
+    </style>
+</head>
+
+<body> -->
+    
+    <div class="container-fluid bg-light">
+        <div class="card-fluid" style="width:100%; margin-bottom:0em; height:auto;">
+            <img class="card-img-top" src="assets/images/images9.png" alt="Card image"
+                style="margin-bottom:0em;">
+            <div class="card-img-overlay">
+                
+                    <h1 class="card-title text-light display-2"
+                        style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        Genesis</h1>
+                
+                <div class="container">
+
+                    <div class="modal fade " id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Sign-in</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your
+                                                email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-info">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    
+                    <h2 class="card-text display-4 text-light">Start designing<br /> your websites today.</h2>
+                    <br /> <br/><br/>
+                    <a class="btn btn-info btn-block btn-lg text-light" href="./register.html" role="button"
+                        style="display:inline-block; margin-bottom: 10%; width:18%; margin-right:2%; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        Get Started</a>
+                    
+                        <a class="btn btn-outline-info btn-block btn-lg text-info" href="#" data-toggle="modal"
+                        data-target="#myModal"
+                        style="display:inline-block; margin-bottom: 10%; margin-left:2%; width:18%; border:2px solid #17cad4; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Sign
+                        In</a>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="container-fluid bg-light justify-content-center" style="margin-top:0%;">
+            <div class="card-deck justify-content-center" style="padding:0em 2em 0em 2em;">
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i1">Home</h4>
+                </div>
+                </div>
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i2">About Us</h4>
+                </div>
+                </div>
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i3">Templates</h4>
+                </div>
+                </div>
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i4">Pricing</h4>
+                </div>
+                </div>
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i5">Feedback</h4>
+                </div>
+                </div>
+                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
+                    <div class="card-body">
+                    <h4 class="text-info" id="i6">Contact Us</h4>
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <br />
+
+<br>
+<div class="container">
+        <div class="card-deck justify-center" id="aboutus">
+            <div class="card bg-light" style="height:38em;">
+
+                <div class="card-title display-4 text-center">Simple<img class="card-img" src="assets/icon/simple.png"
+                        alt="Card image" style="height:1em;width:1em;"></div>
+
+                <img class="card-img-top" src="assets/images/p1.png" alt="Card image" style="height:22em;width:100%;">
+                <div class="card-body text-center ">
+                    <h4>
+                        The drag & drop content editor makes it easy to bring your idea to life, exactly the way you
+                        want.
+                    </h4>
+                </div>
+            </div>
+            <div class="card bg-light" style="height:38em;">
+
+                <div class="card-title display-4 text-center">Flexible<img class="card-img-top"
+                        src="assets/icon/flexible.png" alt="Card image" style="height:1em;width:1em;"></div>
+                <img class="card-img-top" src="assets/images/p2.png" alt="Card image" style="height:22em;width:100%;">
+                <div class="card-body text-center ">
+                    <h4>
+
+                        Whether you need a one page website or an online store, website builder scales to your needs.
+                    </h4>
+                </div>
+            </div>
+
+            <div class="card bg-light" style="height:38em;">
+
+                <div class="card-title display-4 text-center">Affordable<img class="card-img-top"
+                        src="assets/icon/afordable.png" alt="Card image" style="height:1em;width:1em;"></div>
+                <img class="card-img-top" src="assets/images/p3.png" alt="Card image" style="height:22em;width:100%;">
+                <div class="card-body text-center ">
+                    <h4>
+
+                        Simple pricing, no surprises. Our monthly plans vary by the kind of website that you need to
+                        build.
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="card" style="margin-bottom:2em; margin-top:2em;" id="templates">
+            <div class="display-1 justify-content-center "> Templates </div>
+            <div class="card-deck">
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t1.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t2.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t3.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+
+            </div>
+            <br />
+            <div class="card-deck" style="margin-bottom:2em;">
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t4.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t5.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+                <div class="card bg-light" style="height:35em;">
+                    <img class="card-img-top" src="assets/images/t6.jpg" alt="Card image" style="height:100%;width:100%;">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="display-1 justify-content-center prices" id="prices"> Pricing </div>
+        <div class="card-group" style="margin-bottom:2em; margin-top:2em;">
+
+            <div class="card" style="height:35em;">
+                <div class="card-header display-4" style="background-color:white; color:white;">Free</div>
+                <div class="card">
+                    <h3 class="justify-content-center" style="margin-bottom:0.5em; text-align:center; color:white">h
+                    </h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">Storage</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">Time-Duration
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">User's
+                        customized apps</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">Blog</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">Product catalog
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">Lead Manager
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+
+            <div class="card bg-light" style="height:35em;">
+                <div class="card-header display-4">Free</div>
+                <div class="card">
+                    <h3 class="justify-content-center text-dark" style="margin-bottom:0.5em; text-align:center;">$0</h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">300MB</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">30 days trial
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">30 days trial
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">30 days trial
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">30 days trial
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">30 days trial
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+
+            <div class="card bg-warning" style="height:35em;">
+                <div class="card-header display-4">Starter</div>
+                <div class="card">
+                    <h3 class="justify-content-center text-warning" style="margin-bottom:0.5em; text-align:center;">
+                        $6/month</h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">1GB</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">1000 Records
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+
+            <div class="card bg-danger" style="height:35em;">
+                <div class="card-header display-4">Basic</div>
+                <div class="card">
+                    <h3 class="justify-content-center text-danger" style="margin-bottom:0.5em; text-align:center;">
+                        $12/month</h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">3GB</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">5000 Records
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+
+            <div class="card bg-info" style="height:35em;">
+                <div class="card-header display-4">Adv.</div>
+                <div class="card">
+                    <h3 class="justify-content-center text-info" style="margin-bottom:0.5em; text-align:center;">
+                        $24/month</h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">10GB</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">20000 Records
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+
+            <div class="card bg-secondary" style="height:35em;">
+                <div class="card-header display-4">Pro</div>
+                <div class="card">
+                    <h3 class="justify-content-center text-secondary" style="margin-bottom:0.5em; text-align:center;">
+                        $48/month</h3>
+                    <br />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">20GB</div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">50000 Records
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+
+                    <div class="justify-content-center" style="margin-bottom:1.5em; text-align:center;">
+                        <img class="card-img-top" src="assets/images/tick.jpg" style="height:1.3em; width:3em;">
+                    </div>
+                    <hr id="hr1" style="color:grey; margin-top:2px; border: 0.5px solid;" />
+                </div>
+
+
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div id="demo" class="carousel slide" data-ride="carousel" id="feedback">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card bg-light" style="height:38em;">
+
+                        <div class="card-title display-4 text-center">Simple<img class="card-img"
+                                src="assets/icon/simple.png" alt="Card image" style="height:1em;width:1em;"></div>
+
+                        <img class="card-img-top" src="assets/images/p1.png" alt="Card image"
+                            style="height:22em;width:100%;">
+                        <div class="card-body text-center ">
+                            <h4>
+                                The drag & drop content editor makes it easy to bring your idea to life, exactly the way
+                                you want.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-light" style="height:38em;">
+
+                        <div class="card-title display-4 text-center">Simple<img class="card-img"
+                                src="assets/icon/flexible.png" alt="Card image" style="height:1em;width:1em;"></div>
+
+                        <img class="card-img-top" src="assets/images/p2.png" alt="Card image"
+                            style="height:22em;width:100%;">
+                        <div class="card-body text-center ">
+                            <h4>
+                                The drag & drop content editor makes it easy to bring your idea to life, exactly the way
+                                you want.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card bg-light" style="height:38em;">
+
+                        <div class="card-title display-4 text-center">Simple<img class="card-img"
+                                src="assets/icon/afordable.png" alt="Card image" style="height:1em;width:1em;"></div>
+
+                        <img class="card-img-top" src="assets/images/p3.png" alt="Card image"
+                            style="height:22em;width:100%;">
+                        <div class="card-body text-center ">
+                            <h4>
+                                The drag & drop content editor makes it easy to bring your idea to life, exactly the way
+                                you want.
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+
+
+    </div>
+    <br /><br /><br />
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>function function1() {
+            console.log("click js");
+        }</script>
+<!-- </body> -->
