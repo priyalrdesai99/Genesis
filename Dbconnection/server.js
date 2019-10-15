@@ -24,7 +24,7 @@ db.once('open', mongoConnected);
 
 function mongoConnected() {
 	var usersSchema = new mongoose.Schema({
-		_id: Number,
+		
 		name: String,
 		email: String,
 		password:String,
@@ -97,7 +97,29 @@ function mongoConnected() {
 				res.send({ "message": "User record saved successfully"});
 			}
 		});
-	});	
+	});
+	
+	
+	app.post("/loginuser", (req, res) => {
+		console.log(req.body.uname)
+		var name1= req.body.uname;
+		var pass=req.body.pswd;
+		user.find({name:name1,password:pass}, function(err,users) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to add names");
+			}
+			else {	
+				console.log("User searched!");
+			
+				res.send(users);
+			}
+		});
+	});
+
+
+
+
 	app.put("/user", (req, res) => {
 		user.findById( req.body._id, function(err, users) {
 			if (err) {
