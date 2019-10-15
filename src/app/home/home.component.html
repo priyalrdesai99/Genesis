@@ -85,14 +85,18 @@ $('html, body').animate({
                         Genesis</h1>
                 
                 <div class="container">
-                        <div class="modal fade shadow" id="myModal">
+                        <!-- <div class="modal fade shadow" id="myModal">
                                 <div class="modal-dialog  modal-md">
                                     <div class="modal-content shadow" style="border-radius:0px;">
                                         <div class="modal-header" style="border-style:none;">
                                             <h4 class="modal-title">Login</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
-                                        
+                                        <div class="container"
+                                            style="border-top: 1px solid gainsboro;border-bottom: 1px solid gainsboro;">
+                                            <div class="g-signin2" style="width: 350px;margin-left:60px;margin-bottom:50px;"
+                                                data-onsuccess="onSignIn"></div>
+                                        </div>
                                         <div class="container" style="border-bottom: 1px solid gainsboro;margin-bottom: 30px;">
                                             <div class="text-danger">{{ errormsg }}</div>
                                             <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
@@ -123,7 +127,7 @@ $('html, body').animate({
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                 </div>
                 <div class="card-body">
                     

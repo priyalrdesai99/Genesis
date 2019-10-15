@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit {
     }
     console.log(this.userdata);
     this.users.postUser(this.userdata).subscribe(x => { console.log( x)});
+    
+
   }
   else{
     alert("enter proper repassword");

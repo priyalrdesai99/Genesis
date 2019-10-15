@@ -100,10 +100,10 @@
                         <div class="form-group text-light">
                             <label for="inputPassword4">Password</label>
                             <input type="password" class="form-control" id="inputPassword4" [(ngModel)]="password"
-                                name="password" placeholder="Password" required #password_ctl="ngModel">
+                                name="password" placeholder="Password" required #password_ctl="ngModel" minlength="6">
                             <div *ngIf="password_ctl.invalid && (password_ctl.dirty || password_ctl.touched)">
                                 <div *ngIf="password_ctl.errors.required">Password is required. </div>
-
+                                <div *ngIf="password_ctl.errors.minlength"> Password must be at least 6 characters long. </div>
                             </div>
                         </div>
                         <div class="form-group text-light">
@@ -116,7 +116,6 @@
                                 <ng-template #elseblock>
                                     <div *ngIf="isnotmatching()">
                                         Password not matching
-
                                     </div>
                                 </ng-template>
 
@@ -125,8 +124,12 @@
                             <div class="form-group text-light">
                                 <label for="inputNumber">Contact-No:</label>
                                 <input type="number" class="form-control" id="inputNumber" [(ngModel)]="contact_no"
-                                    name="contact" placeholder="Enter Contact Number" />
-                            </div>
+                                    name="contact" placeholder="Enter Contact Number" required #number_ctl="ngModel" pattern="[0-9]{10}"/>
+                                    <div *ngIf="number_ctl.invalid && (number_ctl.dirty || number_ctl.touched)">
+                                            <div *ngIf="number_ctl.errors.required"> Mobile number is required. </div>
+                                            <div *ngIf="number_ctl.errors"> Enter proper Mobile-number. </div>
+                                        </div>
+                                </div>
                         
 
 
