@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserServiceService } from '../user-service.service';
 import { IFUser } from 'src/IFUser';
 @Component({
@@ -16,9 +17,9 @@ export class RegisterComponent implements OnInit {
   constructor(public users:UserServiceService) { }
   
   
-  onformsubmit($event){
+  onformsubmit(){
     this.userdata = { 
-      _id: 1,
+      
       name: this.name, 
       email : this.email,
       password: this.password,

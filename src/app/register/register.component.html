@@ -60,7 +60,7 @@
             </div>
             <div class="card-body">
                 <div class="register-form">
-                    <form>
+                    <form (ngSubmit)="onformsubmit()" #regForm="ngForm">
                         <div class="form-group text-light" >
                             <label for="inputName">Name</label>
                             <input type="text" class="form-control" [(ngModel)]="name" name="name" id="inputName" placeholder="Joey Tribbiani" autofocus>
@@ -85,7 +85,7 @@
 
 
 
-                        <button type="submit" class="btn btn-info" onclick="onformsubmit()" >Sign in</button>
+                        <button type="submit" class="btn btn-info" >Sign in</button>
                     </form>
 
                 </div>              
