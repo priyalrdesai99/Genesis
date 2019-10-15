@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/emp_db", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/users_db", { useNewUrlParser: true });
 
 var db = mongoose.connection;
 
@@ -23,95 +23,102 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', mongoConnected);
 
 function mongoConnected() {
-	var empSchema = new mongoose.Schema({
+	var usersSchema = new mongoose.Schema({
 		_id: Number,
 		name: String,
-		phoneno: Number
-	}, {collection : 'emps'});
+		email: String,
+		password:String,
+		contact_no:Number
+	}, {collection : 'users_db'});
 	
-	var Emp = mongoose.model("Emp", empSchema);
+	var user = mongoose.model("user", usersSchema);
 
-	app.get("/emp", (req, res) => {
-		Emp.find( function(err, employees) {
+	app.get("/user", (req, res) => {
+		user.find( function(err,users) {
 			if (err) {
 				res.status(400);
 				res.send("Unable to find names");
 			}
 			else {
-				console.log("All employees returned");
-				res.send(employees);
+				console.log("All users returned");
+				console.log(users)
+				console.log(users[0]._id)
+				res.send(users);
 			}
 		});
 	});
 	
-	app.get("/emp/:id", (req, res) => {
-		Emp.findById( req.params.id, function(err, emp) {
+	app.get("/user/:id", (req, res) => {
+		user.findById( req.params.id, function(err, users) {
 			if (err) {
-				console.log("Unable to find an employee");
+				console.log("Unable to find an users");
 				res.status(400);
-				res.send("Unable to find an employee");
+				res.send("Unable to find an user");
 			}
 			else {
-				console.log("Employee record returned");
-				res.send(emp);
+				console.log("User record returned");
+				res.send(users);
 			}
 		});
 	});
 	
-	app.delete("/emp/:id", (req, res) => {
+	app.delete("/user/:id", (req, res) => {
 		//console.log("req.params.id");
 		//console.log(req.params.id);
-		Emp.findById( req.params.id, function(err, emp) {
+		user.findById( req.params.id, function(err, users) {
 			if (err) {
 				res.status(400);
-				res.send("Unable to find an employee");
+				res.send("Unable to find user");
 			}
 			else {
-				emp.remove( function(err) {
+				user.remove( function(err) {
 					if (err) {
-						console.log("Unable to remove emp");
+						console.log("Unable to remove user");
 						res.status(400);
-						res.send("Unable to remove emp");
+						res.send("Unable to remove user");
 					}
-					console.log("Employee removed!");
-					res.send({"message" : "Employee removed!"});
+					console.log("User removed!");
+					res.send({"message" : "User removed!"});
 				});
 			}
 		});
 	});
 	
-	app.post("/emp", (req, res) => {
-		var myData = new Emp(req.body);
+	app.post("/user", (req, res) => {
+		console.log(req.body)
+		var myData = new user(req.body);
 		myData.save( function(err) {
 			if (err) {
 				res.status(400);
 				res.send("Unable to add names");
 			}
 			else {	
-				console.log("Employee added!");
-				res.send({ "message": "Employee record saved successfully"});
+				console.log("User added!");
+				res.send({ "message": "User record saved successfully"});
 			}
 		});
 	});	
-	app.put("/emp", (req, res) => {
-		Emp.findById( req.body._id, function(err, emp) {
+	app.put("/user", (req, res) => {
+		user.findById( req.body._id, function(err, users) {
 			if (err) {
-				console.log("No employee with given id found!");
+				console.log("No user with given id found!");
 				res.status(400);
-				res.send("No employee with given id found!");
+				res.send("No user with given id found!");
 			}
-			emp.name = req.body.name;
-			emp.designation = req.body.designation;
+			users.name = req.body.name;
+			users.email = req.body.email;
+			users.password=req.body.password;
+			users.contact_no=req.body.contact_no;
 			
-			emp.save( function(err) {
+			users.save( function(err) {
 				if (err) {
-					console.log("Unable to update employee");
+					console.log("Unable to update users");
 					res.status(400);
-					res.send("Unable to update employee");
+					res.send("Unable to update users");
 				}
 				else {
-					console.log("Employee record updated successfully");
-					res.send({"message":"Employee record updated successfully"});
+					console.log("User record updated successfully");
+					res.send({"message":"User record updated successfully"});
 				}
 			});
 		});			
