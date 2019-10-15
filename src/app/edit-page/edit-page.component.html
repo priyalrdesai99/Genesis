@@ -1,122 +1,129 @@
 <script>
-    currid=0;
-    $(document).ready(function () {
-        $('#blocks img').attr("draggable", "true");
-        $('#blocks img').attr("ondragstart", "drag(event)");
-        $('#editpage *').css("position", "relative");
-        $('#editpage').attr("ondrop", "drop(event)");
-        $('#editpage').attr("ondragover", "allowDrop(event)");
-        $('#editpage').attr("ondragleave", "allowDropOver(event)");
-        $('#editpage div').attr("ondragleave", "allowDropOver(event)");
-        // $('#editpage div').attr("onhover", "hover(event)");
-     $('#editpage div').attr("ondragover", "allowDrop(event)");
-        
-    });
-    function allowDrop(ev) {
-        ev.preventDefault();
-        
-        targ=document.getElementById(ev.target.id);
-        
-        if(targ!=null && targ.tagName=="DIV" && targ!=document.getElementById("editpage"))
-        {
-            targ.style.border="1px solid blue";
-            console.log(targ.tagName);
-        }
-       
-    }
+ currid=0;
+  $(document).ready(function () {
+      $('#blocks img').attr("draggable", "true");
+      $('#blocks img').attr("ondragstart", "drag(event)");
+      $('#editpage *').css("position", "relative");
+      $('#editpage').attr("ondrop", "drop(event)");
+      $('#editpage').attr("ondragover", "allowDrop(event)");
+      $('#editpage').attr("ondragleave", "allowDropOver(event)");
+      $('#editpage div').attr("ondragleave", "allowDropOver(event)");
+      // $('#editpage div').attr("onhover", "hover(event)");
+   $('#editpage div').attr("ondragover", "allowDrop(event)");
+      
+  });
+  function allowDrop(ev) {
+      ev.preventDefault();
+      
+      targ=document.getElementById(ev.target.id);
+      
+      if(targ!=null && targ.tagName=="DIV" && targ!=document.getElementById("editpage"))
+      {
+          targ.style.border="1px solid blue";
+          console.log(targ.tagName);
+      }
+     
+  }
 
-    function allowDropOver(ev) {
-        ev.preventDefault();
-        targ=document.getElementById(ev.target.id);
-        if(targ!=null && targ!=document.getElementById("editpage")){
-            targ.style.border="0px solid blue";
-            console.log("here"+targ.id);
-        }
-        
-    }
+  function allowDropOver(ev) {
+      ev.preventDefault();
+      targ=document.getElementById(ev.target.id);
+      if(targ!=null && targ!=document.getElementById("editpage")){
+          targ.style.border="0px solid blue";
+          console.log("here"+targ.id);
+      }
+      
+  }
 
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
+  function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+  }
 
-    
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        console.log(data);
-        var img1=document.getElementById(data);
-        
-        var temp=document.getElementById(img1.getAttribute("htmlsrc"));
-        
-        var div = document.createElement('div');
-        div.innerHTML = temp.innerHTML.trim();
+  
+  function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      console.log(data);
+      var img1=document.getElementById(data);
+      
+      var temp=document.getElementById(img1.getAttribute("htmlsrc"));
+      
+      var div = document.createElement('div');
+      div.innerHTML = temp.innerHTML.trim();
 
 
-        div=div.firstChild;
-        div.id=currid;
-        currid++;
-        
-        console.log(div);
-        parent = event.target.parentElement;
-        
-        if (event.target != document.getElementById("editpage")) {
-            document.getElementById("editpage").insertBefore(div, ev.target);
-            console.log("other");
-            ev.target.style.border="0px solid blue";
-        }
-        else {
-            document.getElementById("editpage").appendChild(div);
-            //        document.getElementById("editpage").style("height","auto");
-            console.log("this");
-        }
-        // $('#editpage div').hover(function(event){
-        //     $(this).css("border","1px solid blue");
-        // },function(event){
-        //     $(this).css("border","0px solid blue");
-        // });
-        $('#editpage *').click(function(){
-            console.log($(this).attr('id'));
-            function1($(this).attr('id'));
-            });
-    }
-    function drope(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        
-        parent = event.target.parentElement;
-        console.log("target");
-        console.log(ev.target.id);
-        
-        if(event.target!=document.getElementById("editpage")){
-            document.getElementById("editpage").insertBefore(document.getElementById(data),ev.target);
-            console.log("other");
-        }
-        else{
-            document.getElementById("editpage").appendChild(document.getElementById(data));
-    //        document.getElementById("editpage").style("height","auto");
-    console.log("this");
-        }
-        // $('#editpage div').hover(function(event){
-        //     $(this).css("border","1px solid blue");
-        // },function(event){
-        //     $(this).css("border","0px solid blue");
-        // });
-        $('#editpage *').click(function(){
-            console.log($(this).attr('id'));
-            function1($(this).attr('id'));
-            });
-    }
+      div=div.firstChild;
+      //div.id=currid;
+      //currid++;
+      giveID(div);
+      console.log(div);
+      parent = event.target.parentElement;
+      
+      if (event.target != document.getElementById("editpage")) {
+          document.getElementById("editpage").insertBefore(div, ev.target);
+          console.log("other");
+          ev.target.style.border="0px solid blue";
+      }
+      else {
+          document.getElementById("editpage").appendChild(div);
+          //        document.getElementById("editpage").style("height","auto");
+          console.log("this");
+      }
+      // $('#editpage div').hover(function(event){
+      //     $(this).css("border","1px solid blue");
+      // },function(event){
+      //     $(this).css("border","0px solid blue");
+      // });
+      $('#editpage *').click(function(){
+          console.log($(this).attr('id'));
+          function1($(this).attr('id'));
+          });
+  }
+  function drope(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      
+      parent = event.target.parentElement;
+      console.log("target");
+      console.log(ev.target.id);
+      
+      if(event.target!=document.getElementById("editpage")){
+          document.getElementById("editpage").insertBefore(document.getElementById(data),ev.target);
+          console.log("other");
+      }
+      else{
+          document.getElementById("editpage").appendChild(document.getElementById(data));
+  //        document.getElementById("editpage").style("height","auto");
+  console.log("this");
+      }
+      // $('#editpage div').hover(function(event){
+      //     $(this).css("border","1px solid blue");
+      // },function(event){
+      //     $(this).css("border","0px solid blue");
+      // });
+      $('#editpage *').click(function(){
+          console.log($(this).attr('id'));
+          function1($(this).attr('id'));
+          });
+  }
 
-    function save() {
-        alert(document.getElementById("editpage").innerHTML);
-    }
+  function save() {
+      alert(document.getElementById("editpage").innerHTML);
+  }
 
-    function function1(id){
-    // ele=document.getElementById(id);
-    console.log(id);
-    // curtext=document.getElementById('curtext');
-    // curtext.value=ele.innerHTML;
-    // curid=id;
+  function function1(id){
+  // ele=document.getElementById(id);
+  console.log(id);
+  // curtext=document.getElementById('curtext');
+  // curtext.value=ele.innerHTML;
+  // curid=id;
+}
+function giveID(ele){
+  if(ele.hasChildNodes()){
+    ele.childNodes.forEach(giveID);
+  }
+  ele.id=currid;
+  currid++;
 }
 </script>
 
