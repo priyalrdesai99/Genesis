@@ -24,7 +24,7 @@ export class UserServiceService {
   }
 
   getUserWithId(email : String):Observable<any> {
-    return this.http.get<HttpResponse<any>>(this._url + "/" + email, {observe:'response'})    
+    return this.http.get<HttpResponse<any>>(this._url + "/" + email,httpOptions)    
   }
   postUser(user : IFUser):Observable<any> {
     return this.http.post <any>(this._url,user, httpOptions)      

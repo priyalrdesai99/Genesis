@@ -31,29 +31,27 @@ export class HomeComponent implements OnInit {
   
   constructor(users:UserServiceService,authenticate: LoginService, private router: Router) {
   
-    users.getUsers().subscribe(x => { console.log( x)}); 
+    users.getUsers().subscribe(x => x); 
     this.authenticate = authenticate;
    }
 
   ngOnInit() {
-  //   window.onscroll = function() {this.myFunction()};  
-  //   // Get the navbar
-  // this.navbar = document.getElementById("nav");
   
-  // // Get the offset position of the navbar
-  // this.sticky = this.navbar.offsetTop;
-    
     this.loggedin = false;
+    console.log(localStorage.getItem('fullname'))
     if (localStorage.getItem('fullname')) {
       this.fullname = localStorage.getItem('fullname');
       this.loggedin = true;
-      this.router.navigate(['Movie']);
+      this.router.navigate(['loggedin']);
+    
     }
     this.errormsg = '';
     this.formdata = new FormGroup({
       username: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('')
+
+
       ])),
       password: new FormControl('')
     });
@@ -62,13 +60,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  signout() {
-    // const auth2 = gapi.auth2.getAuthInstance();
-    // auth2.signOut().then(() => {
-    // });
-    localStorage.removeItem('fullname');
-    this.router.navigate(['Movie']);
-  }
+  
 
   onClickSubmit(value: any) {
     // alert( 'hii' );
@@ -76,26 +68,15 @@ export class HomeComponent implements OnInit {
     this.password = value.password;
     this.authenticate.validate(this.username, this.password).subscribe(r => {
     this.user = r;
-    console.log(this.user);
+    
     if (this.user) {
-      localStorage.setItem('fullname', this.user.name.toString());
+      localStorage.setItem('fullname', this.user[0].email);
       this.error = false;
-      this.router.navigate(['/Movie']);
+      this.router.navigate(['/loggedin']);
      } else {
       this.error = true;
       this.errormsg = 'Invalid Username/Password';
       }
     });
   }
-  
-
-  
-  // // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-  // myFunction() {
-  //   if (window.pageYOffset >= this.sticky) {
-  //     this.navbar.classList.add("sticky");
-  //   } else {
-  //     this.navbar.classList.remove("sticky");
-  //   }
-  // }
 }
