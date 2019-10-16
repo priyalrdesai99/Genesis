@@ -20,14 +20,11 @@ export class HomeComponent implements OnInit {
   public password;
   public loggedin;
   authenticate: LoginService;
-<<<<<<< HEAD
-  formdata;
+  
   // navbar:any;
   // sticky;
-=======
   formdata:FormGroup;
   
->>>>>>> 316e00cd533c9d7ef7b923f364a5148428ef3065
 
   
   
