@@ -1,1 +1,88 @@
-<p>account-settings works!</p>
+<div class="card-fluid" style="width:100%; height:40em; margin-bottom:0em;">
+    <img class="card-img-top" src="./assets/images/websitebuilder1.jpg" alt="Card image">
+    <div class="card-img-overlay">
+        <div class="card-header">
+            <h1 class="card-title text-light display-1"
+                style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Genesis</h1>
+        </div>
+        <div class="card-body">
+            <div class="register-form">
+                <form (ngSubmit)="onformsubmit()" #regForm="ngForm">
+                    <div class="form-group text-light">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="name" name="name" id="inputName"
+                            required minlength="4" placeholder="Joey Tribbiani" #name_ctl="ngModel" autofocus>
+
+                        <div *ngIf=" name_ctl.invalid && (name_ctl.dirty || name_ctl.touched)">
+                            <div *ngIf="name_ctl.errors.required"> Name is required. </div>
+                            <div *ngIf="name_ctl.errors.minlength"> Name must be at least 4 characters long. </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group text-light">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" required class="form-control" id="inputEmail4" [(ngModel)]="email"
+                            name="email" placeholder="joey@gmail.com" #email_ctl="ngModel" [email]=true>
+
+
+                        <div *ngIf="email_ctl.invalid && (email_ctl.dirty || email_ctl.touched)">
+                            <div *ngIf="email_ctl.errors.required"> email is required. </div>
+                            <div *ngIf="email_ctl.errors"> Enter proper email_id. </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" [(ngModel)]="password"
+                            name="password" placeholder="Password" required #password_ctl="ngModel" minlength="6">
+                        <div *ngIf="password_ctl.invalid && (password_ctl.dirty || password_ctl.touched)">
+                            <div *ngIf="password_ctl.errors.required">Password is required. </div>
+                            <div *ngIf="password_ctl.errors.minlength"> Password must be at least 6 characters long. </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="inputPassword2">ReEnter-Password</label>
+                        <input type="password" class="form-control" id="inputPassword2" name="repassword" required
+                            [(ngModel)]="repassword" placeholder="Reneter-Password" #repassword_ctl="ngModel">
+
+                        <div *ngIf="repassword_ctl.invalid && (repassword_ctl.dirty || repassword_ctl.touched)">
+                            <div *ngIf="repassword_ctl.errors.required;else elseblock"> It is required. </div>
+                            <ng-template #elseblock>
+                                <div *ngIf="isnotmatching()">
+                                    Password not matching
+                                </div>
+                            </ng-template>
+
+                        </div>
+                    </div>         
+                        <div class="form-group text-light">
+                            <label for="inputNumber">Contact-No:</label>
+                            <input type="number" class="form-control" id="inputNumber" [(ngModel)]="contact_no"
+                                name="contact" placeholder="Enter Contact Number" required #number_ctl="ngModel" pattern="[0-9]{10}"/>
+                                <div *ngIf="number_ctl.invalid && (number_ctl.dirty || number_ctl.touched)">
+                                        <div *ngIf="number_ctl.errors.required"> Mobile number is required. </div>
+                                        <div *ngIf="number_ctl.errors"> Enter proper Mobile-number. </div>
+                                    </div>
+                            </div>
+                    
+
+
+
+                        <button type="submit" [disabled]="!regForm.form.valid" class="btn btn-info">Sign in</button>
+                </form>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
