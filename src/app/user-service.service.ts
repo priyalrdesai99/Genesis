@@ -23,8 +23,8 @@ export class UserServiceService {
     return this.http.get<IFUser[]>(this._url)
   }
 
-  getUserWithId(userId : number):Observable<any> {
-    return this.http.get<HttpResponse<any>>(this._url + "/" + userId, {observe:'response'})    
+  getUserWithId(email : String):Observable<any> {
+    return this.http.get<HttpResponse<any>>(this._url + "/" + email, {observe:'response'})    
   }
   postUser(user : IFUser):Observable<any> {
     return this.http.post <any>(this._url,user, httpOptions)      
