@@ -91,7 +91,7 @@ export class EditPageComponent implements OnInit {
         console.log(temp);
         //var div = document.createElement('div');
         var div=$('<div id="'+currid+'"></div>').text(temp.innerHTML.trim()).ready(function(){
-          alert(this);
+          //alert(this);
           parent = ev.target.parentElement;
         
         if (ev.target != document.getElementById("editpage")) {
@@ -106,7 +106,8 @@ export class EditPageComponent implements OnInit {
         }
 
         div=document.getElementById(<string><any>currid);
-        this.giveID(div);
+        //this.giveID(div);
+        alert(div);
         $('#editpage *').click(function(){
           console.log($(this).attr('id'));
           this.function1($(this).attr('id'));
