@@ -48,10 +48,10 @@ function mongoConnected() {
 		});
 	});
 	
-	app.get("/user/:id", (req, res) => {
-		user.findById( req.params.id, function(err, users) {
+	app.get("/user/:email1", (req, res) => {
+		user.find( {email:req.params.email1}, function(err, users) {
 			if (err) {
-				console.log("Unable to find an users");
+				console.log(req.params.id);
 				res.status(400);
 				res.send("Unable to find an user");
 			}

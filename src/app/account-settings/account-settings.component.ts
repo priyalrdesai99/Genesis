@@ -8,14 +8,22 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./account-settings.component.css']
 })
 export class AccountSettingsComponent implements OnInit {
-  private name:string;
-  private email:string;
-  private password: string;
+  private name:String;
+  private email:String;
+  private password: String;
   private contact_no: Number;
   private userdata:IFUser;
-  private repassword:string;
+  private repassword:String;
   constructor(public users:UserServiceService) {
-    users.getUserWithId(1).subscribe(x => {this.userdata= x;});
+    users.getUserWithId("priyal").subscribe(x => {this.userdata= x;});
+    
+    console.log(this.userdata);
+    // this.name=this.userdata.name;
+    // this.email=this.userdata.email;
+    // this.contact_no=this.userdata.contact_no;
+
+
+
    }
 
   
