@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NavComponent } from './nav/nav.component';
-
+import { ColorPickerModule } from 'ngx-color-picker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,8 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    ColorPickerModule
   ],
   providers: [UserServiceService],
   bootstrap: [AppComponent]
