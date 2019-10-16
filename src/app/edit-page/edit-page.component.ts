@@ -90,37 +90,45 @@ export class EditPageComponent implements OnInit {
         var temp=document.getElementById(img1.getAttribute("alt"));
         console.log(temp);
         //var div = document.createElement('div');
-        var div=$('<div></div>').text(temp.innerHTML.trim());
-        // div.innerHTML = temp.innerHTML.trim();
-  
-  
-        //div=div.firstChild;
-        //div.id=currid;
-        //currid++;
-        console.log(div);
-        this.giveID(div);
-        
-        parent = ev.target.parentElement;
+        var div=$('<div id="'+currid+'"></div>').text(temp.innerHTML.trim()).ready(function(){
+          alert(this);
+          parent = ev.target.parentElement;
         
         if (ev.target != document.getElementById("editpage")) {
-            document.getElementById("editpage").insertBefore(div, ev.target);
+            document.getElementById("editpage").insertBefore($('this'), ev.target);
             console.log("other");
             ev.target.style.border="0px solid blue";
         }
         else {
-            document.getElementById("editpage").appendChild(div);
+          //  document.getElementById("editpage").appendChild(this);
             //        document.getElementById("editpage").style("height","auto");
             console.log("this");
         }
+
+        div=document.getElementById(<string><any>currid);
+        this.giveID(div);
+        $('#editpage *').click(function(){
+          console.log($(this).attr('id'));
+          this.function1($(this).attr('id'));
+          });  
+      
+      });
+        // div.innerHTML = temp.innerHTML.trim();
+  console.log(div.id);
+  
+        //div=div.firstChild;
+        //div.id=currid;
+        //currid++;
+        
+        
+        
         // $('#editpage div').hover(function(event){
         //     $(this).css("border","1px solid blue");
         // },function(event){
         //     $(this).css("border","0px solid blue");
         // });
-        $('#editpage *').click(function(){
-            console.log($(this).attr('id'));
-            this.function1($(this).attr('id'));
-            });
+        
+        
     }
     drope(ev) {
         ev.preventDefault();
