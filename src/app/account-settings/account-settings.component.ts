@@ -15,13 +15,14 @@ export class AccountSettingsComponent implements OnInit {
   private userdata:IFUser;
   private repassword:String;
   constructor(public users:UserServiceService) {
-    users.getUserWithId("priyal").subscribe(x => {this.userdata= x;});
+    users.getUserWithId("priyal").subscribe(x => {this.userdata= x;this.name=this.userdata.name;
+      this.email=this.userdata.email;
+      this.contact_no=this.userdata.contact_no;console.log(this.userdata.name);
+  });
     
-    console.log(this.userdata);
-    // this.name=this.userdata.name;
-    // this.email=this.userdata.email;
-    // this.contact_no=this.userdata.contact_no;
+   
 
+    
 
 
    }

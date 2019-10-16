@@ -39,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule 
   ],
   providers: [UserServiceService],
   bootstrap: [AppComponent]
