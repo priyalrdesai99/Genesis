@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   public password;
   public loggedin;
   authenticate: LoginService;
+  
+  // navbar:any;
+  // sticky;
   formdata:FormGroup;
   
 
@@ -33,7 +36,12 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-    
+  //   window.onscroll = function() {this.myFunction()};  
+  //   // Get the navbar
+  // this.navbar = document.getElementById("nav");
+  
+  // // Get the offset position of the navbar
+  // this.sticky = this.navbar.offsetTop;
     
     this.loggedin = false;
     if (localStorage.getItem('fullname')) {
@@ -79,5 +87,15 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  
 
+  
+  // // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  // myFunction() {
+  //   if (window.pageYOffset >= this.sticky) {
+  //     this.navbar.classList.add("sticky");
+  //   } else {
+  //     this.navbar.classList.remove("sticky");
+  //   }
+  // }
 }
