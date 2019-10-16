@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   public password;
   public loggedin;
   authenticate: LoginService;
-  formdata;
+  formdata:FormGroup;
   
 
   
