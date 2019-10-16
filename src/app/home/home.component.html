@@ -4,52 +4,54 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            //$("img").click(function () {
-            //    console.log("hello");
-            //    alert("clicked");
-            //});
+-->
 
-            $('#i1').click(function () {
+<script>
+    $(document).ready(function () {
+        //$("img").click(function () {
+        //    console.log("hello");
+        //    alert("clicked");
+        //});
 
-                console.log("helo");
-                $('html, body').animate({
-                    scrollTop: $("#home").offset().top
-                }, 2000);
-            });
-            $('#i2').click(function () {
+        $('#i1').click(function () {
 
-console.log("helo");
-$('html, body').animate({
-    scrollTop: $("#aboutus").offset().top
-}, 2000);
-});
-$('#i3').click(function () {
-
-console.log("helo");
-$('html, body').animate({
-    scrollTop: $("#templates").offset().top
-}, 2000);
-});
-$('#i4').click(function () {
-
-console.log("helo");
-$('html, body').animate({
-    scrollTop: $("#prices").offset().top
-}, 2000);
-});
-$('#i5').click(function () {
-
-console.log("helo");
-$('html, body').animate({
-    scrollTop: $("#feedback").offset().top
-}, 2000);
-});
+            console.log("helo");
+            $('html, body').animate({
+                scrollTop: $("#home").offset().top
+            }, 2000);
         });
+        $('#i2').click(function () {
 
-    </script>
-    <style>
+            console.log("helo");
+            $('html, body').animate({
+                scrollTop: $("#aboutus").offset().top
+            }, 2000);
+        });
+        $('#i3').click(function () {
+
+            console.log("helo");
+            $('html, body').animate({
+                scrollTop: $("#templates").offset().top
+            }, 2000);
+        });
+        $('#i4').click(function () {
+
+            console.log("helo");
+            $('html, body').animate({
+                scrollTop: $("#prices").offset().top
+            }, 2000);
+        });
+        $('#i5').click(function () {
+
+            console.log("helo");
+            $('html, body').animate({
+                scrollTop: $("#feedback").offset().top
+            }, 2000);
+        });
+    });
+
+</script>
+<!-- <style>
 /*    Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {  
     body {font-size: 8px;}
@@ -73,192 +75,209 @@ $('html, body').animate({
 </head>
 
 <body> -->
-    
-    <div class="container-fluid bg-light">
-        <div class="card-fluid" style="width:100%; margin-bottom:0em; height:auto;">
-            <img class="card-img-top" src="assets/images/websitebuilder1.jpg" alt="Card image"
-                style="margin-bottom:0em;">
-            <div class="card-img-overlay">
-                
-                    <h1 class="card-title text-light display-2"
-                        style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-                        Genesis</h1>
-                
-                <div class="container">
-                        <div class="modal fade shadow" id="myModal">
-                                <div class="modal-dialog  modal-md">
-                                    <div class="modal-content shadow" style="border-radius:0px;">
-                                        <div class="modal-header" style="border-style:none;">
-                                            <h4 class="modal-title">Login</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <div class="container" style="border-bottom: 1px solid gainsboro;margin-bottom: 30px;">
-                                            <div class="text-danger">{{ errormsg }}</div>
-                                            <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-                                                <div class="form-group">
-                                                    <label for="uname" class="text-align">Username:</label>
-                                                    <input type="text" class="form-control" id="uname"
-                                                        placeholder="Enter username" name="uname" formControlName="username">
-                                                    <div class="text-danger">{{ erroruname }}</div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="pwd">Password:</label>
-                                                    <input type="password" class="form-control" id="pwd"
-                                                        placeholder="Enter password" name="password" formControlName="password">
-                                                    <div class="invalid-feedback"></div>
-                                                </div>
-                                                <div class="form-group form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" name="remember"
-                                                            required> I
-                                                        agree on Terms and Conditions.
-        
-                                                    </label>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary"
-                                                    [disabled]="!formdata.valid">Submit</button>
-                                            </form>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
+
+<div class="container-fluid bg-light">
+    <div class="card-fluid" style="width:100%; margin-bottom:0em; height:100%;position:relative;">
+        <img class="card-img" src="assets/images/images9.png" alt="Card image" style="margin-bottom:0em;">
+        <div class="card-img-overlay">
+
+            <h1 class="card-title text-light display-2"
+                style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Genesis</h1>
+
+
+            <div class="card-body">
+
+                <h2 class="card-text display-4 text-light">Start designing<br /> your websites today.</h2>
+                <br /> <br /><br />
+                <a class="btn btn-info btn-block btn-lg text-light" href="./register.html" role="button"
+                    style="display:inline-block; margin-bottom: 10%; width:18%; margin-right:2%; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    Get Started</a>
+
+                <a class="btn btn-outline-info btn-block btn-lg text-info" href="#" data-toggle="modal"
+                    data-target="#myModal"
+                    style="display:inline-block; margin-bottom: 10%; margin-left:2%; width:18%; border:2px solid #17cad4; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Sign
+                    In</a>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="modal fade " id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sign-in</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your
+                                    email with anyone else.</small>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-info">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    
-                    <h2 class="card-text display-4 text-light">Start designing<br /> your websites today.</h2>
-                    <br /> <br/><br/>
-                    <a class="btn btn-info btn-block btn-lg text-light" href="../register" role="button"
-                        style="display:inline-block; margin-bottom: 10%; width:18%; margin-right:2%; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-                        Get Started</a>
-                    
-                        <a class="btn btn-outline-info btn-block btn-lg text-info" href="#" data-toggle="modal"
-                        data-target="#myModal"
-                        style="display:inline-block; margin-bottom: 10%; margin-left:2%; width:18%; border:2px solid #17cad4; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Sign
-                        In</a>
-
-                </div>
-
-
-
-
             </div>
         </div>
+    </div>
+    
 
-        <div class="container-fluid bg-light justify-content-center" style="margin-top:0%;">
-            <div class="card-deck justify-content-center" style="padding:0em 2em 0em 2em;">
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i1">Home</h4>
-                </div>
-                </div>
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i2">About Us</h4>
-                </div>
-                </div>
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i3">Templates</h4>
-                </div>
-                </div>
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i4">Pricing</h4>
-                </div>
-                </div>
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i5">Feedback</h4>
-                </div>
-                </div>
-                <div class="card-fluid" style="margin-bottom:0em; padding-right:5%;">
-                    <div class="card-body">
-                    <h4 class="text-info" id="i6">Contact Us</h4>
-                </div>
-                </div>
-
-            </div>
-
+    <div class="container-fluid" style="padding-top: 2%; padding-bottom:3%; padding-left: 0;padding-right: 0; background-color: white; " id="nav">
+        <ul class="nav nav-fill justify-content-center sticky-top" style="position: sticky;" >
+            <li class="nav-item">
+                <a class="nav-link text-info active" href="#">
+                    <h4>Home</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#">
+                    <h4>About Us</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#">
+                    <h4>Templates</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#">
+                    <h4>Pricing</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#">
+                    <h4>Pricing</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="#">
+                    <h4>Feedback</h4>
+                </a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link text-info" href="#">
+                        <h4>
+                            Contact Us
+                        </h4>
+                    </a>
+            </li>
+        </ul>
+    </div>
+   
+   <div class="jumbotron">
+    <div class="card-fluid bg-light">
+        <div class="card-title">
+                <h4 class="display-4">
+                        &nbsp;About Us
+                    </h4>    
         </div>
-
-
-
-
-        <br />
-
-<br>
-<div class="container">
-        <div class="card-deck justify-center" id="aboutus">
-            <div class="card bg-light" style="height:38em;">
+        
+        <div class="card-body">
+            <p class="lead text-body">
+                    Easily create WOW websites that are supported on all browsers and devices, using an advanced, straightforward and convenient user interface. No code is required with Simbla drag and drop website builder. Built on Bootstrap3 cutting-edge technology, our templates are well- designed and tailored for any kind of business. Take a tour through our responsive website templates and prepare to be amazed.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck justify-center" id="aboutus" style="height:90%;">
+            <div class="card bg-light" style="height:100%;">
 
                 <div class="card-title display-4 text-center">Simple<img class="card-img" src="assets/icon/simple.png"
                         alt="Card image" style="height:1em;width:1em;"></div>
 
-                <img class="card-img-top" src="assets/images/p1.png" alt="Card image" style="height:22em;width:100%;">
-                <div class="card-body text-center ">
-                    <h4>
+                <img class="card-img-top" src="assets/images/p1.png" alt="Card image" style="height:22em; width:100%; opacity:0.85;">
+                <div class="card-body text-center" style="height:auto;">
+                    <p class="lead">
                         The drag & drop content editor makes it easy to bring your idea to life, exactly the way you
                         want.
-                    </h4>
+                    </p>
                 </div>
             </div>
-            <div class="card bg-light" style="height:38em;">
+            <div class="card bg-light" style="height:100%;">
 
                 <div class="card-title display-4 text-center">Flexible<img class="card-img-top"
                         src="assets/icon/flexible.png" alt="Card image" style="height:1em;width:1em;"></div>
-                <img class="card-img-top" src="assets/images/p2.png" alt="Card image" style="height:22em;width:100%;">
-                <div class="card-body text-center ">
-                    <h4>
+                <img class="ca  rd-img-top" src="assets/images/p2.png" alt="Card image" style="height:22em;width:100%; opacity:0.85;">
+                <div class="card-body text-center " style="height:auto;">
+                    <p class="lead">
 
                         Whether you need a one page website or an online store, website builder scales to your needs.
-                    </h4>
+                    </p>
                 </div>
             </div>
 
-            <div class="card bg-light" style="height:38em;">
+            <div class="card bg-light" style="height:100%;">
 
                 <div class="card-title display-4 text-center">Affordable<img class="card-img-top"
-                        src="assets/icon/afordable.png" alt="Card image" style="height:1em;width:1em;"></div>
-                <img class="card-img-top" src="assets/images/p3.png" alt="Card image" style="height:22em;width:100%;">
-                <div class="card-body text-center ">
-                    <h4>
+                    src="assets/icon/afordable.png" alt="Card image" style="height:1em;width:1em;"></div>
+                <img class="card-img-top" src="assets/images/p3.png" alt="Card image" style="height:22em;width:100%; opacity:0.75;">
+                <div class="card-body text-center " style="height:auto;">
+                    <p class="lead">
 
                         Simple pricing, no surprises. Our monthly plans vary by the kind of website that you need to
                         build.
-                    </h4>
+                    </p>
                 </div>
             </div>
 
         </div>
 
+</div>
+
+
+    <div class="container-fluid">
+        
         <br />
 
-        <div class="card" style="margin-bottom:2em; margin-top:2em;" id="templates">
-            <div class="display-1 justify-content-center "> Templates </div>
+        <div class="card-fluid" style="margin-bottom:2em; margin-top:2em;" id="templates">
+            <div class="card-title display-4 justify-content-center "> Templates <br></div>
             <div class="card-deck">
-                <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t1.jpg" alt="Card image" style="height:100%;width:100%;">
+                <div class="card bg-light" >
+                    <img class="card-img-top" src="assets/images/t1.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
-                <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t2.jpg" alt="Card image" style="height:100%;width:100%;">
+                <div class="card bg-light" >
+                    <img class="card-img-top" src="assets/images/t2.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
-                <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t3.jpg" alt="Card image" style="height:100%;width:100%;">
+                <div class="card bg-light" >
+                    <img class="card-img-top" src="assets/images/t3.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
 
             </div>
             <br />
             <div class="card-deck" style="margin-bottom:2em;">
                 <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t4.jpg" alt="Card image" style="height:100%;width:100%;">
+                    <img class="card-img-top" src="assets/images/t4.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
                 <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t5.jpg" alt="Card image" style="height:100%;width:100%;">
+                    <img class="card-img-top" src="assets/images/t5.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
                 <div class="card bg-light" style="height:35em;">
-                    <img class="card-img-top" src="assets/images/t6.jpg" alt="Card image" style="height:100%;width:100%;">
+                    <img class="card-img-top" src="assets/images/t6.jpg" alt="Card image"
+                        style="height:100%;width:100%;">
                 </div>
 
             </div>
@@ -564,14 +583,16 @@ $('html, body').animate({
     </div>
     <br /><br /><br />
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
-    <script>function function1() {
-            console.log("click js");
-        }</script>
+<script>
+
+function function1() {
+        console.log("click js");
+    }</script>
 <!-- </body> -->
