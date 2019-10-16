@@ -1,3 +1,5 @@
+var assert = require('assert'),ObjectID = require('mongodb').ObjectID;
+
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
@@ -24,12 +26,12 @@ db.once('open', mongoConnected);
 
 function mongoConnected() {
 	var usersSchema = new mongoose.Schema({
-		
+		_id:Number,
 		name: String,
 		email: String,
 		password:String,
 		contact_no:Number
-	}, {collection : 'users_db'});
+	}, {collection : 'users'});
 	
 	var user = mongoose.model("user", usersSchema);
 
@@ -49,9 +51,9 @@ function mongoConnected() {
 	});
 	
 	app.get("/user/:email1", (req, res) => {
-		user.find( {email:req.params.email1}, function(err, users) {
+		user.findOne( {email:req.params.email1}, function(err, users) {
 			if (err) {
-				console.log(req.params.id);
+				
 				res.status(400);
 				res.send("Unable to find an user");
 			}
@@ -87,10 +89,10 @@ function mongoConnected() {
 	app.post("/user", (req, res) => {
 		console.log(req.body)
 		var myData = new user(req.body);
-		myData.save( function(err) {
+		user.insertMany({_id:myData._id,name:myData.name,email:myData.email,password:myData.password,contact_no:myData.contact_no}, function(err) {
 			if (err) {
 				res.status(400);
-				res.send("Unable to add names");
+				res.send("Unable to add users");
 			}
 			else {	
 				console.log("User added!");

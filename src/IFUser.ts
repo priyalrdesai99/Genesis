@@ -1,9 +1,9 @@
 
 export interface IFUser{
-   //    _id:Number, 
-      name: String,
-      email:String,
-      password:String,
-      contact_no:Number
+       _id:number, 
+      name: string,
+      email:string,
+      password:string,
+      contact_no:number
   }
   

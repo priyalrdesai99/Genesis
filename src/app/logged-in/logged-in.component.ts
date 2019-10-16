@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IFUser } from 'src/IFUser';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-logged-in',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logged-in.component.css']
 })
 export class LoggedInComponent implements OnInit {
-
-  constructor() { }
+  constructor() {
+  
+   }
 
   ngOnInit() {
   }

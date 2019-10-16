@@ -9,6 +9,9 @@ import { FeedBackComponent } from './feed-back/feed-back.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { PlanSettingsComponent } from './plan-settings/plan-settings.component';
 import { PreviewComponent } from './preview/preview.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [
@@ -20,9 +23,10 @@ const routes: Routes = [
   {path:"feedback",component:FeedBackComponent},
   {path:"loggedin",component:LoggedInComponent},
   {path:"palnsettings",component:PlanSettingsComponent},
-  {path:"preview",component:PreviewComponent}
-
-
+  {path:"preview",component:PreviewComponent},
+  {path:"logout",component:LogoutComponent},
+  {path:"viewprofile",component:ViewprofileComponent},
+  {path:"nav",component:NavComponent}
 
 
 ];

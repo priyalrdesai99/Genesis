@@ -19,6 +19,9 @@ import { PlanSettingsComponent } from './plan-settings/plan-settings.component';
 import { PreviewComponent } from './preview/preview.component';
 import { UserServiceService } from './user-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoggedInComponent,
     PlanSettingsComponent,
     PreviewComponent,
+    LogoutComponent,
+    ViewprofileComponent,
+    NavComponent,
     
     
   ],
