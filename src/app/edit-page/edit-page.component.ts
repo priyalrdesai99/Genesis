@@ -5,7 +5,8 @@ declare var $:any;
 declare var blocks:any;
 var currid:number;
 var targ:any;
-
+// var clicked:string;
+// var comptext:string;
 
 
 
@@ -15,6 +16,9 @@ var targ:any;
   styleUrls: ['./edit-page.component.css']
 })
 export class EditPageComponent implements OnInit {
+  private clicked:string;
+  private comptext:string;
+  private mc:EditPageComponent;
   blocks=[
     {'id':'b1',
     'src':'assets/images/blockimages/C1.PNG',
@@ -29,7 +33,8 @@ export class EditPageComponent implements OnInit {
 ]
   ngOnInit() {
     currid=0;
-    
+    this.comptext="";  
+    this.mc=this;
     $(document).ready(function () {
         console.log("hello");
         
@@ -42,15 +47,79 @@ export class EditPageComponent implements OnInit {
     //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
     //     // $('#editpage div').attr("onhover", "hover(event)");
     //  $('#editpage div').attr("ondragover", "allowDrop(event)");
-        
+        $('#editpage div p').on('click',function(){
+          console.log();
+          this.component.clicked=this.id;
+    var ele=document.getElementById(this.component.clicked);
+    if(typeof ele != null || typeof ele != undefined){
+      
+      if(ele.nodeType!=1){
+          ele.childNodes.forEach(c => {
+            console.log(c);
+          });
+          alert("Cannot modify div and parent elements at the moment");
+        }
+        else{
+          this.component.comptext=ele.textContent;
+        }
+  
+    }
+         //function1(this.id);
+        });
     });
   }
-  function1(id){
-    // ele=document.getElementById(id);
-    console.log(id.target);
-    // curtext=document.getElementById('curtext');
-    // curtext.value=ele.innerHTML;
-    // curid=id;
+  
+
+    textchanged(){
+      console.log('textchanged');
+      var ele=document.getElementById(this.clicked);
+    
+          ele.textContent=this.comptext;
+    }
+
+    boldclicked(){
+      console.log('boldclicked');
+      var ele=document.getElementById(this.clicked);
+    
+          if(ele.style.fontWeight ==""){
+            ele.style.fontWeight="bold";
+          }
+          else{
+            ele.style.fontWeight="";
+          }
+    }
+
+    underlineclicked(){
+      console.log('underlineclicked');
+      var ele=document.getElementById(this.clicked);
+    
+          if(ele.style.textDecoration ==""){
+            ele.style.textDecoration="underline";
+          }
+          else{
+            ele.style.textDecoration="";
+          }
+    }
+
+    alignclicked(align:string){
+      console.log('alignclicked'+align);
+      var ele=document.getElementById(this.clicked);
+    
+      ele.style.textAlign = align;
+    
+    }
+
+    italicclicked(){
+      console.log('italicclicked');
+      var ele=document.getElementById(this.clicked);
+    
+          if(ele.style.fontStyle =="normal" || ele.style.fontStyle ==""){
+            ele.style.fontStyle="italic";
+          }
+          else{
+            ele.style.fontStyle="normal";
+          }
+
     }
     allowDrop(ev) {
         ev.preventDefault();
@@ -170,6 +239,27 @@ export class EditPageComponent implements OnInit {
     ele.id=currid;
     currid++;
   }  
+  function1(id){
+    
+    console.log(id);
+    this.clicked=id;
+    var ele=document.getElementById(this.clicked);
+    if(typeof ele != null || typeof ele != undefined){
+      
+      if(ele.nodeType!=1){
+          ele.childNodes.forEach(c => {
+            console.log(c);
+          });
+          alert("Cannot modify div and parent elements at the moment");
+        }
+        else{
+          this.comptext=ele.textContent;
+        }
   
-  
+    }
+    // curtext=document.getElementById('curtext');
+    // curtext.value=ele.innerHTML;
+    // curid=id;
+    }  
+   
 }
