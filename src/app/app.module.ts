@@ -23,6 +23,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NavComponent } from './nav/nav.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     LogoutComponent,
     ViewprofileComponent,
     NavComponent,
+    SidenavComponent,
     
     
   ],
