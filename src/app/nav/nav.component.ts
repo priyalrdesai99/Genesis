@@ -5,7 +5,7 @@ import { UserServiceService } from '../user-service.service';
 @Component({
   selector: 'app-nav',
   template: `
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%; position:fixed; border-radius:0px; margin-bottom:0px; height:10%;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="width:100%; border-radius:0px; margin-bottom:0px; height:10%;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
