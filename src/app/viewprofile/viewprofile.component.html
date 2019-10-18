@@ -1,11 +1,11 @@
 
 <app-nav></app-nav>
-<div class="container container-fluid" style="position:fixed; border-radius:0px; margin-top:10%;">
+<div class="container container-fluid" style="position:fixed; border-radius:0px;margin-left:20%; margin-top:10%; height:auto;">
 
-    <div class="card card-flex bg-dark" >
+    <div class="card card-flex bg-dark" style="width:50%;">
     
     <div class="card-header" style="background-color:#2c2c33">
-            <h4><font color="white">Profile</font></h4>
+            <h1><font color="white" >Profile</font></h1>
       </div>
     <div class="card-body">
       <p class="list-group list-group-flush">
@@ -13,25 +13,36 @@
           <table border="0">
           <tr>
           <td>
-          <p style="color:white;">      Username:</p>
+          <h3 style="color:white;">      Username:{{username}}</h3>
+
           </td>
-          <td>
-        <p style="color:white;">{{username}}</p>
-            </td>
+          <br>
           </tr>
         
-        
         <tr>
-        <p>
-           <td> <p style="color:white;">    Email id:</p></td>
-        <td> <p style="color:white;">{{email}}</p>
-        </td>
+          <br>
+          <br>
         </tr>
         <tr>
         <p>
-           <td> <p style="color:white;">   Contact_no:</p></td>
-        <td> <p style="color:white;">{{contact_no}}</p>
+        <td> <h3 style="color:white;">    Email id:{{email}}</h3></td>
+        <td> <h3 style="color:white;"></h3>
         </td>
+        </tr>
+        <tr>
+          <br>
+          
+        </tr>
+
+        <tr>
+        
+           <td> <h3 style="color:white;">   Contact_no:{{contact_no}}</h3>
+        <td> <h3 style="color:white;"></h3>
+        </td>
+        </tr>
+        <tr>
+          <br>
+          <br>
         </tr>
         <tr>
             <td>
@@ -39,6 +50,8 @@
                     Edit</a>
             </td>
         </tr>
+
+
             </table>
       </ul>
     </div>

@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
       <div id="contentInside" *ngFor="let container of containers"></div>
       <button (click)="add()">Add</button>
     </div>
+
+
+
+
+    
   `,
   styles: [`
     #content{
@@ -27,7 +32,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class SidenavComponent implements OnInit {
 
-  containers = [];
+    containers = [];
 
   constructor() { }
 

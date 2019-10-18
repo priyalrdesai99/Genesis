@@ -1,5 +1,3 @@
-var assert = require('assert'),ObjectID = require('mongodb').ObjectID;
-
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
@@ -33,6 +31,15 @@ function mongoConnected() {
 		contact_no:Number
 	}, {collection : 'users'});
 	
+    var plansSchema = new mongoose.Schema({
+		_id:Number,
+		name: String,
+		storage: String,
+		time_duration:String,
+		price:String
+	}, {collection : 'plan'});
+	
+    var Plan=mongoose.model("plan",plansSchema);
 	var user = mongoose.model("user", usersSchema);
 
 	app.get("/user", (req, res) => {
@@ -49,7 +56,39 @@ function mongoConnected() {
 			}
 		});
 	});
+
+
+	app.get("/plan", (req, res) => {
+		Plan.find( function(err,plans) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find names");
+			}
+			else {
+				console.log("All plans returned");
+				console.log(plans)
+				//console.log(plans[0]._id)
+				res.send(plans);
+			}
+		});
+	});
 	
+	app.get("/plan/:id",(req,res) => {
+		Plan.find({_id:req.params.id},function(err,plan)
+		{
+			if(err)
+			{
+				res.status(400);
+				res.send("Unable to find plan");
+			}
+			else {
+				console.log("Plan record returned");
+				console.log(plan);
+				res.send(plan);
+			}
+		});
+	});
+
 	app.get("/user/:email1", (req, res) => {
 		user.findOne( {email:req.params.email1}, function(err, users) {
 			if (err) {
@@ -103,7 +142,7 @@ function mongoConnected() {
 	
 	
 	app.post("/loginuser", (req, res) => {
-		console.log(req.body.uname)
+		console.log(req.body.uname);
 		var name1= req.body.uname;
 		var pass=req.body.pswd;
 		user.find({name:name1,password:pass}, function(err,users) {

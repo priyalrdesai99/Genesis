@@ -15,6 +15,7 @@ import { NavComponent } from './nav/nav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 
+
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"register",component:RegisterComponent},
@@ -23,13 +24,13 @@ const routes: Routes = [
   {path:"accountsettings",component:AccountSettingsComponent},
   {path:"feedback",component:FeedBackComponent},
   {path:"loggedin",component:LoggedInComponent},
-  {path:"palnsettings",component:PlanSettingsComponent},
+  {path:"plansettings",component:PlanSettingsComponent},
   {path:"preview",component:PreviewComponent},
   {path:"logout",component:LogoutComponent},
   {path:"viewprofile",component:ViewprofileComponent},
   {path:"nav",component:NavComponent},
   {path:"sidenav",component:SidenavComponent},
-
+  
 
 ];
 
