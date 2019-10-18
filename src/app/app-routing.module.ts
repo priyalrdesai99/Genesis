@@ -12,6 +12,7 @@ import { PreviewComponent } from './preview/preview.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NavComponent } from './nav/nav.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:"preview",component:PreviewComponent},
   {path:"logout",component:LogoutComponent},
   {path:"viewprofile",component:ViewprofileComponent},
-  {path:"nav",component:NavComponent}
+  {path:"nav",component:NavComponent},
+  {path:"sidenav",component:SidenavComponent},
 
 
 ];
