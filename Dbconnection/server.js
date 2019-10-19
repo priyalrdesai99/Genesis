@@ -39,6 +39,7 @@ function mongoConnected() {
 		time_duration:String,
 		price:String
 	}, {collection : 'plan'});
+	
 	var compSchema =  new mongoose.Schema({
 		_id:String,
 		src: String,
@@ -47,10 +48,20 @@ function mongoConnected() {
 		type:String
 	}, {collection : 'component'});
 
+	var pageSchema =  new mongoose.Schema({
+		_id:Number,
+		user_id:Number,
+		name:String,
+		content:String
+	}, {collection : 'page'});
+
+
+
     var Plan=mongoose.model("plan",plansSchema);
 	var user = mongoose.model("user", usersSchema);
 	var Comp= mongoose.model("component", compSchema);
-
+    var Page = mongoose.model("page", pageSchema);
+	
 	app.get("/user", (req, res) => {
 		user.find( function(err,users) {
 			if (err) {
@@ -65,8 +76,51 @@ function mongoConnected() {
 			}
 		});
 	});
+	
+	app.get("/page", (req, res) => {
+		Page.find( function(err,pages) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find pages");
+			}
+			else {
+				console.log("All pages returned");
+				console.log(pages)
+				
+				res.send(pages);
+			}
+		});
+	});
 
+	app.get("/page/:user_id", (req, res) => {
+		Page.find({"user_id":req.params.user_id}, function(err,pages) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find pages");
+			}
+			else {
+				console.log("All pages returned");
+				console.log(pages)
+				
+				res.send(pages);
+			}
+		});
+	});
 
+	app.get("/page/:user_id/:_id", (req, res) => {
+		Page.findOne({"user_id":req.params.user_id,"_id":req.params._id}, function(err,pages) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find pages");
+			}
+			else {
+				console.log("All pages returned");
+				console.log(pages)
+				
+				res.send(pages);
+			}
+		});
+	});
 	app.get("/plan", (req, res) => {
 		Plan.find( function(err,plans) {
 			if (err) {
@@ -166,6 +220,29 @@ function mongoConnected() {
 		});
 	});
 	
+    app.delete("/page/:id", (req, res) => {
+		//console.log("req.params.id");
+		//console.log(req.params.id);
+		Page.findById( req.params.id, function(err, page) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find page");
+			}
+			else {
+				page.remove( function(err) {
+					if (err) {
+						console.log("Unable to remove page");
+						res.status(400);
+						res.send("Unable to remove page");
+					}
+					console.log("Page removed!");
+					res.send({"message" : "page removed!"});
+				});
+			}
+		});
+	});
+
+
 	app.post("/user", (req, res) => {
 		console.log(req.body)
 		var myData = new user(req.body);
@@ -197,6 +274,8 @@ function mongoConnected() {
 		});
 	});
 	
+	
+
 	app.post("/loginuser", (req, res) => {
 		console.log(req.body.uname);
 		var name1= req.body.uname;
@@ -214,8 +293,30 @@ function mongoConnected() {
 		});
 	});
 
-
-	
+	app.put("/page", (req, res) => {
+		Page.findById( req.body._id, function(err, pages) {
+			if (err) {
+				console.log("No user with given id found!");
+				res.status(400);
+				res.send("No user with given id found!");
+			}
+			pages.content=req.body.content;
+			pages.name = req.body.name;
+			pages.user_id=req.body.user_id;			
+			
+			pages.save( function(err) {
+				if (err) {
+					console.log("Unable to update pages");
+					res.status(400);
+					res.send("Unable to update pages");
+				}
+				else {
+					console.log("Page record updated successfully");
+					res.send({"message":"Page record updated successfully"});
+				}
+			});
+		});			
+	});	
 	
 	
 
