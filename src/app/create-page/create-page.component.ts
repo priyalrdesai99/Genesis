@@ -1,76 +1,61 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ColorPickerService, Cmyk } from 'ngx-color-picker';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
+import { Validators } from "@angular/forms";
 
+export interface Food {
+   value: string;
+   display: string;
+}
 @Component({
   selector: 'app-create-page',
   templateUrl: './create-page.component.html',
   styleUrls: ['./create-page.component.css']
 })
 export class CreatePageComponent implements OnInit {
-  public toggle: boolean = false;
+  title = 'materialApp';   
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup:FormGroup;
+  fourthFormGroup:FormGroup;
+  public headerList=[{"img":"./../../assets/images/back1.jpg"},{"img":"./assets/images/back2.jpg"},{"img":"assets/images/back3.jpg"},{"img":"assets/images/back4.jpg"},{"img":"assets/images/back5.jpg"}];
+  public footerList=[{"img":"./../../assets/images/back1.jpg"},{"img":"./assets/images/back2.jpg"},{"img":"assets/images/back3.jpg"},{"img":"assets/images/back4.jpg"},{"img":"assets/images/back5.jpg"}];
+  public contentList=[{"img":"./../../assets/images/back1.jpg"},{"img":"./assets/images/back2.jpg"},{"img":"assets/images/back3.jpg"},{"img":"assets/images/back4.jpg"},{"img":"assets/images/back5.jpg"}];
+  constructor(private _formBuilder: FormBuilder) {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+   });
 
-  public rgbaText: string = 'rgba(165, 26, 214, 0.2)';
-
-  public arrayColors: any = {
-    color1: '#2883e9',
-    color2: '#e920e9',
-    color3: 'rgb(255,245,0)',
-    color4: 'rgb(236,64,64)',
-    color5: 'rgba(45,208,45,1)'
-  };
-
-  public selectedColor: string = 'color1';
-
-  public color1: string = '#2889e9';
-  public color2: string = '#e920e9';
-  public color3: string = '#fff500';
-  public color4: string = 'rgb(236,64,64)';
-  public color5: string = 'rgba(45,208,45,1)';
-  public color6: string = '#1973c0';
-  public color7: string = '#f200bd';
-  public color8: string = '#a8ff00';
-  public color9: string = '#278ce2';
-  public color10: string = '#0a6211';
-  public color11: string = '#f2ff00';
-  public color12: string = '#f200bd';
-  public color13: string = 'rgba(0,255,0,0.5)';
-  public color14: string = 'rgb(0,255,255)';
-  public color15: string = 'rgb(255,0,0)';
-  public color16: string = '#a51ad633';
-  public color17: string = '#666666';
-  public color18: string = '#ff0000';
-
-  public cmykValue: string = '';
-
-  public cmykColor: Cmyk = new Cmyk(0, 0, 0, 0);
-  constructor(public vcRef: ViewContainerRef, private cpService: ColorPickerService) {}
+  }
   ngOnInit() {
+     this.firstFormGroup = this._formBuilder.group({
+        firstCtrl: ['', Validators.required]
+     });
+     this.secondFormGroup = this._formBuilder.group({
+        secondCtrl: ['', Validators.required]
+     });
+     this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+   });
+   
+   this.fourthFormGroup = this._formBuilder.group({
+    fourthCtrl: ['', Validators.required]
+ });
   }
 
+  headerSelected(i){
+     console.log(i);
+
+  }
   
-  public onEventLog(event: string, data: any): void {
-    console.log(event, data);
-  }
+  footerSelected(i){
+   console.log(i);
 
-  public onChangeColorCmyk(color: string): Cmyk {
-    const hsva = this.cpService.stringToHsva(color);
+}
 
-    if (hsva) {
-      const rgba = this.cpService.hsvaToRgba(hsva);
+contentSelected(i){
+   console.log(i);
 
-      return this.cpService.rgbaToCmyk(rgba);
-    }
-
-    return new Cmyk(0, 0, 0, 0);
-  }
-
-  public onChangeColorHex8(color: string): string {
-    const hsva = this.cpService.stringToHsva(color, true);
-
-    if (hsva) {
-      return this.cpService.outputFormat(hsva, 'rgba', null);
-    }
-
-    return '';
-  }
+}
 }

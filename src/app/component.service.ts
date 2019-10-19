@@ -16,7 +16,7 @@ export const httpOptions =  {
 export class ComponentService {
 
  
-private _url :string = "http://localhost:8000/component";
+private _url :string = "http://localhost:8000/component"
 
 constructor(private http: HttpClient) {   
 }
