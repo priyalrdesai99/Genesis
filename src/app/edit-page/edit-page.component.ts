@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 declare var jquery: any;
 declare var $: any;
 declare var blocks: any;
@@ -20,7 +21,8 @@ export class EditPageComponent implements OnInit {
   private clicked: string;
   private comptext: string;
   private mc: EditPageComponent;
-
+private pageid:any;
+//private route:ActivatedRoute;
   usereditpage = '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h18">Head1</h1><p id="h17">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h16">Head1</h1><p id="h15">Welcome to sample site</p></div>'
   headers = [
     {
@@ -67,7 +69,12 @@ export class EditPageComponent implements OnInit {
     }
   ]
 
+constructor(
+  private route: ActivatedRoute,
+) { }
   ngOnInit() {
+    this.pageid=this.route.snapshot.paramMap.get('id');
+    console.log(this.pageid);  
     currid = 1;
     this.comptext = "";
     this.mc = this;

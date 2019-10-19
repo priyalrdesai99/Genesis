@@ -8,6 +8,8 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./logged-in.component.css']
 })
 export class LoggedInComponent implements OnInit {
+  pages=[{name:'page1',id:'p1'},{name:'page2',id:'p2'}]
+  
   constructor() {
   
    }
