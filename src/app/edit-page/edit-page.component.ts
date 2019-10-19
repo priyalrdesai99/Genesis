@@ -95,7 +95,7 @@ constructor(
       //  $('#editpage div').attr("ondragover", "allowDrop(event)");
       $('#editpage div p,#editpage div :header').on('click', function () {
         console.log('hey there');
-        console.log(this);
+        console.log(this.id);
 
         document.getElementById("clickedele").setAttribute("value", this.id);
 
@@ -110,11 +110,11 @@ constructor(
             alert("Cannot modify div and parent elements at the moment");
           }
           else {
-            var textele = document.getElementById("comptextele")
-            console.log(textele);
-            textele.setAttribute("value", ele.textContent);
-            textele.textContent=ele.textContent;
+            var textele = document.getElementById("comptextele");
             
+            textele.setAttribute("value",ele.textContent);
+            textele.textContent=ele.textContent;
+            console.log(textele);
           }
 
         }
@@ -131,6 +131,7 @@ constructor(
     console.log('textchanged');
     console.log(this.clicked);
     this.clicked = document.getElementById("clickedele").getAttribute("value");
+    
     var ele = document.getElementById(this.clicked);
 
     ele.textContent = event.target.value;

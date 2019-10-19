@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
     this.authenticate.validate(this.username, this.password).subscribe(r => {
     this.user = r;
     
-    if (this.user) {
+    if (this.user[0]) {
       localStorage.setItem('fullname', this.user[0].email);
       this.error = false;
       this.router.navigate(['/loggedin']);
