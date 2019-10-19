@@ -1,2 +1,32 @@
 <app-nav></app-nav>
 
+<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+<h4 class="display-4 text-info" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; opacity: 0.80;;">
+    Welcome to Genesis
+</h4>
+<br>
+<br>
+
+<h6 class="lead">Created Pages</h6>
+<table class="table table-striped table-hover">
+    <tr>
+    <th>
+Page
+    </th>
+    <th>Edit Your Pages</th>
+    <th>Delete Your Page</th>
+</tr>
+<tr *ngFor="let page of pages">
+    <td>{{page.name}}</td>
+    <td>
+        <a role="button" class="btn btn-outline-info" href="/editpage/{{page.id}}">Edit</a>
+    </td>
+    <td>
+        <button type="button" class="btn btn-outline-info" (click)="deletepage()">Delete</button>
+    </td>
+</tr>
+</table>
+<br>
+<br>
+<a role="button" class="btn btn-info btn-lg text-light" href="/createpage">Create new page</a>
+</div>

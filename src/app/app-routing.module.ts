@@ -20,7 +20,7 @@ import { ViewplanComponent } from './viewplan/viewplan.component';
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"register",component:RegisterComponent},
-  {path:"editpage",component:EditPageComponent},
+  {path:"editpage/:id",component:EditPageComponent},
   {path:"createpage",component:CreatePageComponent},
   {path:"accountsettings",component:AccountSettingsComponent},
   {path:"feedback",component:FeedBackComponent},
