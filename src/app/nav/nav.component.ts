@@ -39,16 +39,10 @@ import { UserServiceService } from '../user-service.service';
 
 <ul class="nav nav-pills nav-stacked flex-column bg-light" style="position: fixed; height:100%;width:15%; padding-top:4%; margin-top: 3%; z-index: -2;">
     <li class="nav-item">
-    <div id="blocks">
-        <div id="bl2" style="width:100%;">
-            <h1 id="h14">Head1</h1>
-            <p id="h15">Thank You for visiting sample site</p>
-        </div>
-        <div id="bl3" style="width:100%;">
-            <h1 id="h16">Head3456</h1>
-            <p id="h17">Thank You for visiting sample site</p>
-        </div>
-    </div>
+    Page 1
+    </li>
+    <li class="nav-item">
+    Page 2
     </li>
     
 </ul>

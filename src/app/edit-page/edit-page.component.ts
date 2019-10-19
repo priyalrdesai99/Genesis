@@ -15,13 +15,14 @@ var targ: any;
   templateUrl: './edit-page.component.html',
   styleUrls: ['./edit-page.component.css']
 })
+
 export class EditPageComponent implements OnInit {
   private clicked: string;
   private comptext: string;
   private mc: EditPageComponent;
 
   usereditpage = '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h18">Head1</h1><p id="h17">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h16">Head1</h1><p id="h15">Welcome to sample site</p></div>'
-  blocks = [
+  headers = [
     {
       'id': 'b1',
       'src': 'assets/images/blockimages/C1.PNG',
@@ -35,6 +36,37 @@ export class EditPageComponent implements OnInit {
       'template': '123'
     }
   ]
+  
+  contents = [
+    {
+      'id': 'b1',
+      'src': 'assets/images/blockimages/C1.PNG',
+      'htmlsrc': 't1',
+      'template': '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">This is the content</p></div>'
+    },
+    {
+      'id': 'b2',
+      'src': 'assets/images/blockimages/Capture.PNG',
+      'htmlsrc': 't2',
+      'template': '123'
+    }
+  ]
+
+  footers = [
+    {
+      'id': 'b1',
+      'src': 'assets/images/blockimages/C1.PNG',
+      'htmlsrc': 't1',
+      'template': '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div>'
+    },
+    {
+      'id': 'b2',
+      'src': 'assets/images/blockimages/Capture.PNG',
+      'htmlsrc': 't2',
+      'template': '123'
+    }
+  ]
+
   ngOnInit() {
     currid = 1;
     this.comptext = "";
@@ -190,16 +222,16 @@ export class EditPageComponent implements OnInit {
 
     parent = ev.target.parentElement;
 
-    if (ev.target != document.getElementById("editpage")) {
-      alert("Sorry but you can only insert blocks at end of page")
-    }
-    else {
+    // if (ev.target != document.getElementById("editpage")) {
+    //   alert("Sorry but you can only insert blocks at end of page")
+    // }
+    // else {
 
       document.getElementById("editpage").insertAdjacentHTML('beforeend', div);
       //       document.getElementById("editpage").style("height","auto");
       console.log("this");
       console.log(document.getElementById(<string><any>currid));
-    }
+    // }
 
     var div1 = document.getElementById(<string><any>currid);
     //this.giveID(div);
@@ -244,7 +276,7 @@ export class EditPageComponent implements OnInit {
           textele.textContent=ele.textContent;
           textele.setAttribute("value", ele.textContent);
           console.log(textele);
-          
+
         }
 
       }
