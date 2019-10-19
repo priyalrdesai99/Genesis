@@ -10,7 +10,7 @@ var targ: any;
 
 
 
-@Component({
+@Component({ 
   selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
   styleUrls: ['./edit-page.component.css']

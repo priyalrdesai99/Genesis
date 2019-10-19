@@ -38,9 +38,17 @@ function mongoConnected() {
 		time_duration:String,
 		price:String
 	}, {collection : 'plan'});
-	
+	var compSchema =  new mongoose.Schema({
+		_id:String,
+		src: String,
+		htmlsrc: String,
+		template:String,
+		type:String
+	}, {collection : 'component'});
+
     var Plan=mongoose.model("plan",plansSchema);
 	var user = mongoose.model("user", usersSchema);
+	var Comp= mongoose.model("component", compSchema);
 
 	app.get("/user", (req, res) => {
 		user.find( function(err,users) {
@@ -73,6 +81,38 @@ function mongoConnected() {
 		});
 	});
 	
+	app.get("/component", (req, res) => {
+		Comp.find( function(err,components) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find components");
+			}
+			else {
+				console.log("All components returned");
+				console.log(components)
+				//console.log(plans[0]._id)
+				res.send(components);
+			}
+		});
+	});
+
+
+	
+	app.get("/component/:type1", (req, res) => {
+		Comp.find({"type":req.params.type1}, function(err,components) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find components");
+			}
+			else {
+				console.log("All components returned");
+				console.log(components)
+				//console.log(plans[0]._id)
+				res.send(components);
+			}
+		});
+	});
+
 	app.get("/plan/:id",(req,res) => {
 		Plan.find({_id:req.params.id},function(err,plan)
 		{
@@ -140,6 +180,21 @@ function mongoConnected() {
 		});
 	});
 	
+
+	app.post("/component", (req, res) => {
+		console.log(req.body)
+		var myData = new user(req.body);
+		Comp.insertMany({_id:myData._id,src:myData.src,htmlsrc:myData.htmlsrc,template:myData.template,type:myData.type}, function(err) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to add componentss");
+			}
+			else {	
+				console.log(req.body);
+				res.send({ "message": "Component added successfully"});
+			}
+		});
+	});
 	
 	app.post("/loginuser", (req, res) => {
 		console.log(req.body.uname);
