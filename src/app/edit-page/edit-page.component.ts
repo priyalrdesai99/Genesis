@@ -1,8 +1,13 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Routes, RouterModule } from '@angular/router';
 import { IComponent } from '../IComponent';
 import { ComponentService } from '../component.service';
+
+import { PageService } from '../page.service';
+import { IPage } from 'src/IPage';
+import { UserServiceService } from '../user-service.service';
+import { IFUser } from 'src/IFUser';
 declare var jquery: any;
 declare var $: any;
 declare var blocks: any;
@@ -27,12 +32,71 @@ private pageid:any;
 public headers:Array<IComponent>;
 public contents:Array<IComponent>;
 public footers:Array<IComponent>;
+public page:IPage;
+public user_id:number;
+public user_data:IFUser;
 //private route:ActivatedRoute;
-  usereditpage = '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h18">Head1</h1><p id="h17">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h16">Head1</h1><p id="h15">Welcome to sample site</p></div>'
-  
+public usereditpage:string;
+public pname:string;  
   
  
-constructor(private route: ActivatedRoute,public components:ComponentService) {
+constructor(private route: ActivatedRoute,public components:ComponentService,public pages:PageService,public user:UserServiceService,public router:Router) {
+
+  this.pageid=this.route.snapshot.paramMap.get('id');
+    
+    
+  user.getUserWithId(localStorage.getItem('fullname')).subscribe(x => {this.user_data=x;
+    this.user_id=this.user_data._id;
+  pages.getPageWithId(this.pageid,this.user_id).subscribe(x => { this.page=x;
+      this.pname=this.page.name;
+      console.log(this.page.content);
+      this.usereditpage=this.page.content;
+
+      document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);  
+      $(document).ready(function () {
+        // $('#blocks img').attr("draggable", "true");
+        // $('#blocks img').attr("(ondragstart)", "drag(event)");
+        $('#editpage *').css("position", "relative");
+  
+        //     $('#editpage').attr("ondrop", "drop(event)");
+        //     $('#editpage').attr("ondragover", "allowDrop(event)");
+        //     $('#editpage').attr("ondragleave", "allowDropOver(event)");
+        //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
+        //     // $('#editpage div').attr("onhover", "hover(event)");
+        //  $('#editpage div').attr("ondragover", "allowDrop(event)");
+        $('#editpage div p,#editpage div :header').on('click', function () {
+          console.log('hey there');
+          console.log(this);
+  
+          document.getElementById("clickedele").setAttribute("value", this.id);
+  
+          var ele = document.getElementById(this.id);
+          console.log(ele);
+          if (typeof ele != null || typeof ele != undefined) {
+  
+            if (ele.nodeType != 1) {
+              ele.childNodes.forEach(c => {
+                console.log(c);
+              });
+              alert("Cannot modify div and parent elements at the moment");
+            }
+            else {
+              var textele = document.getElementById("comptextele")
+              console.log(textele);
+              textele.setAttribute("value", ele.textContent);
+              textele.textContent=ele.textContent;
+              
+            }
+  
+          }
+  
+        });
+        
+      });
+    });
+    });
+
+
 
   components.getComponentWithType("headers").subscribe(x => {this.headers = x;
     console.log(this.headers);
@@ -46,58 +110,25 @@ constructor(private route: ActivatedRoute,public components:ComponentService) {
 
  }
   ngOnInit() {
-    this.pageid=this.route.snapshot.paramMap.get('id');
     console.log(this.pageid);  
     currid = 1;
     this.comptext = "";
     this.mc = this;
     this.clicked = '0';
-    document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);
-    $(document).ready(function () {
-      console.log("hello");
-
-      // $('#blocks img').attr("draggable", "true");
-      // $('#blocks img').attr("(ondragstart)", "drag(event)");
-      $('#editpage *').css("position", "relative");
-
-      //     $('#editpage').attr("ondrop", "drop(event)");
-      //     $('#editpage').attr("ondragover", "allowDrop(event)");
-      //     $('#editpage').attr("ondragleave", "allowDropOver(event)");
-      //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
-      //     // $('#editpage div').attr("onhover", "hover(event)");
-      //  $('#editpage div').attr("ondragover", "allowDrop(event)");
-      $('#editpage div p,#editpage div :header').on('click', function () {
-        console.log('hey there');
-        console.log(this);
-
-        document.getElementById("clickedele").setAttribute("value", this.id);
-
-        var ele = document.getElementById(this.id);
-        console.log(ele);
-        if (typeof ele != null || typeof ele != undefined) {
-
-          if (ele.nodeType != 1) {
-            ele.childNodes.forEach(c => {
-              console.log(c);
-            });
-            alert("Cannot modify div and parent elements at the moment");
-          }
-          else {
-            var textele = document.getElementById("comptextele")
-            console.log(textele);
-            textele.setAttribute("value", ele.textContent);
-            textele.textContent=ele.textContent;
-            
-          }
-
-        }
-
-      });
-      $('#editpage div :header').on('click', function () {
-        console.log(this);
-      });
-    });
   }
+  save() {
+    console.log(document.getElementById("editpage").innerHTML);
+    this.page = { 
+        _id:this.pageid,
+        name: this.pname, 
+        content:document.getElementById("editpage").innerHTML,
+        user_id:this.user_id
+      }
+      
+      this.pages.putPage(this.page).subscribe(x => { console.log( x)});
+      this.router.navigate(['/loggedin']);
+    
+}
 
 
   textchanged(event: any) {
@@ -290,9 +321,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService) {
 
   }
 
-  save() {
-    alert(document.getElementById("editpage").innerHTML);
-  }
+  
 
   giveID(ele) {
     var len = ele.childNodes.length;
