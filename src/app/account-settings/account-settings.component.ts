@@ -16,6 +16,7 @@ export class AccountSettingsComponent implements OnInit {
   public userdata:IFUser;
   public repassword:string;
   public id:number;
+  public plan_id:number;
   constructor(public users:UserServiceService,public router:Router) {
 
     this.email=localStorage.getItem('fullname')
@@ -41,6 +42,7 @@ export class AccountSettingsComponent implements OnInit {
       this.contact_no=this.userdata.contact_no;
       console.log(this.userdata._id);
       this.id=this.userdata._id;
+        this.plan_id=this.userdata.plan_id;
       }
 
       
@@ -55,7 +57,8 @@ export class AccountSettingsComponent implements OnInit {
       name: this.name, 
       email : this.email,
       contact_no: this.contact_no,
-      password:this.password
+      password:this.password,
+      plan_id:this.plan_id
     }
     console.log(this.userdata);
     this.users.putUser(this.userdata).subscribe(x => { console.log( x)});

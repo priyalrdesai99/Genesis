@@ -20,7 +20,7 @@ import { UserServiceService } from '../user-service.service';
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" routerLink="../viewprofile" href="#">My profile</a>
-                    <a class="dropdown-item" routerLink="../plansettings" href="#">Change Plan</a>
+                    <a class="dropdown-item" routerLink="../viewplan" href="#">Change Plan</a>
  
 
                 </div>

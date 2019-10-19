@@ -13,6 +13,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NavComponent } from './nav/nav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ViewplanComponent } from './viewplan/viewplan.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:"viewprofile",component:ViewprofileComponent},
   {path:"nav",component:NavComponent},
   {path:"sidenav",component:SidenavComponent},
+  {path:"viewplan",component:ViewplanComponent},
   
 
 ];
