@@ -115,6 +115,51 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
     this.comptext = "";
     this.mc = this;
     this.clicked = '0';
+    document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);
+    $(document).ready(function () {
+      console.log("hello");
+
+      // $('#blocks img').attr("draggable", "true");
+      // $('#blocks img').attr("(ondragstart)", "drag(event)");
+      $('#editpage *').css("position", "relative");
+
+      //     $('#editpage').attr("ondrop", "drop(event)");
+      //     $('#editpage').attr("ondragover", "allowDrop(event)");
+      //     $('#editpage').attr("ondragleave", "allowDropOver(event)");
+      //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
+      //     // $('#editpage div').attr("onhover", "hover(event)");
+      //  $('#editpage div').attr("ondragover", "allowDrop(event)");
+      $('#editpage div p,#editpage div :header').on('click', function () {
+        console.log('hey there');
+        console.log(this.id);
+
+        document.getElementById("clickedele").setAttribute("value", this.id);
+
+        var ele = document.getElementById(this.id);
+        console.log(ele);
+        if (typeof ele != null || typeof ele != undefined) {
+
+          if (ele.nodeType != 1) {
+            ele.childNodes.forEach(c => {
+              console.log(c);
+            });
+            alert("Cannot modify div and parent elements at the moment");
+          }
+          else {
+            var textele = document.getElementById("comptextele");
+            
+            textele.setAttribute("value",ele.textContent);
+            textele.textContent=ele.textContent;
+            console.log(textele);
+          }
+
+        }
+
+      });
+      $('#editpage div :header').on('click', function () {
+        console.log(this);
+      });
+    });
   }
   save() {
     console.log(document.getElementById("editpage").innerHTML);
@@ -139,6 +184,7 @@ delete()
     console.log('textchanged');
     console.log(this.clicked);
     this.clicked = document.getElementById("clickedele").getAttribute("value");
+    
     var ele = document.getElementById(this.clicked);
 
     ele.textContent = event.target.value;

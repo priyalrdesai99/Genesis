@@ -165,7 +165,8 @@
                   <br>  
                   Toolkit
                 </p>
-              <textarea class="form-control"  (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
+                <form (keydown.enter)="$event.preventDefault()">
+              <textarea class="form-control" (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
               <br>
               <div class="angular-editor-toolbar-set">
                 <button [id]="'bold-'+id" type="button" title="Bold" class="angular-editor-button" (click)="boldclicked()"
@@ -257,12 +258,15 @@
                 <button [id]="'toggleEditorMode-'+id" type="button" title="HTML Code" class="angular-editor-button"
                         (click)="triggerCommand('toggleEditorMode')" tabindex="-1"><i class='fa fa-code'></i></button>
               </div> -->
+              
+            </form>
             </div>
             <input type="hidden" [(ngModel)]="clicked" id="clickedele">               
-        
+            
+          
       
       </div>
-      
+    
       <!-- <ul class="nav nav-pills nav-stacked flex-column bg-light navbar-right" style="position: relative;width:100%; height:100%; padding-top:3%; z-index: -2;">
         <li class="nav-item text-light">
 
@@ -305,7 +309,7 @@
 
 <!-- <ul >
 <li>
-  <form (keydown.enter)="$event.preventDefault()">
+  
     <textarea (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
   </form>
   </li>
