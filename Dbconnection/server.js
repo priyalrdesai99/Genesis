@@ -258,10 +258,26 @@ function mongoConnected() {
 		});
 	});
 	
+	app.post("/page", (req, res) => {
+		console.log(req.body)
+		var myData = new Page(req.body);
+		Page.insertMany({_id:myData._id,name:myData.name,user_id:myData.user_id,content:myData.content}, function(err) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to add users");
+			}
+			else {	
+				console.log("User added!");
+				res.send({ "message": "User record saved successfully"});
+			}
+		});
+	});
+
+
 
 	app.post("/component", (req, res) => {
 		console.log(req.body)
-		var myData = new user(req.body);
+		var myData = new Comp(req.body);
 		Comp.insertMany({_id:myData._id,src:myData.src,htmlsrc:myData.htmlsrc,template:myData.template,type:myData.type}, function(err) {
 			if (err) {
 				res.status(400);

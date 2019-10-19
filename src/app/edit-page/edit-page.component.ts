@@ -129,6 +129,10 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
       this.router.navigate(['/loggedin']);
     
 }
+delete()
+{
+  this.pages.deletePage(this.pageid).subscribe(x => x);
+}
 
 
   textchanged(event: any) {

@@ -39,4 +39,12 @@ putPage(page : IPage):Observable<any> {
   return this.http.put <any>(this._url,page, httpOptions)      
 }
 
+deletePage(pageId : number):Observable<any> {
+  return this.http.delete <any>(this._url + "/" + pageId);      
+}
+
+postPage(Page : IPage):Observable<any> {
+  return this.http.post <any>(this._url,Page, httpOptions);      
+}
+
 }

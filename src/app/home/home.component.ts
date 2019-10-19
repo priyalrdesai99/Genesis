@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('fullname')) {
       this.fullname = localStorage.getItem('fullname');
       this.loggedin = true;
-      this.router.navigate(['loggedin']);
+      window.location.href='/loggedin';
     
     }
     this.errormsg = '';
