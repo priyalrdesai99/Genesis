@@ -31,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule,MatInputModule } from '@angular/material';
 import { PlanService } from './plan.service';
+import { ViewplanComponent } from './viewplan/viewplan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { PlanService } from './plan.service';
     ViewprofileComponent,
     NavComponent,
     SidenavComponent,
+    ViewplanComponent,
     
     
     

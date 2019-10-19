@@ -4,6 +4,7 @@ export interface IFUser{
       name: string,
       email:string,
       password:string,
-      contact_no:number
+      contact_no:number,
+      plan_id:number
   }
   

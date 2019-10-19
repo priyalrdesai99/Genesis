@@ -28,7 +28,8 @@ function mongoConnected() {
 		name: String,
 		email: String,
 		password:String,
-		contact_no:Number
+		contact_no:Number,
+		plan_id:Number
 	}, {collection : 'users'});
 	
     var plansSchema = new mongoose.Schema({
@@ -159,6 +160,9 @@ function mongoConnected() {
 	});
 
 
+	
+	
+	
 
 
 	app.put("/user", (req, res) => {
@@ -172,7 +176,7 @@ function mongoConnected() {
 			users.email = req.body.email;
 			users.password=req.body.password;
 			users.contact_no=req.body.contact_no;
-			
+			users.plan_id=req.body.plan_id;			
 			users.save( function(err) {
 				if (err) {
 					console.log("Unable to update users");

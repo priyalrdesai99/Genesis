@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <br><br><br>
-<div class="card bg-dark text-light" style="margin-left:20%; height:auto;">
+<div class="card bg-dark text-dark" style="margin-left:20%; height:auto;">
     <div *ngFor="let p of plans">
         <div class="card-body">
 Select Plan:
@@ -9,8 +9,12 @@ Select Plan:
             <p>Storage: {{p.storage}} </p>
             <p>Time: {{p.time_duration}} </p>
             <p>Price: {{p.price}} </p>
-
-        </div>
+            
+            
+            
+            <button on-click="onformsubmit(p._id)">Upgrade</button>
+    
+    </div>
     </div>
 
 
