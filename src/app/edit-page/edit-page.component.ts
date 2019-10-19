@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Routes, RouterModule } from '@angular/router';
+import { IComponent } from '../IComponent';
+import { ComponentService } from '../component.service';
 declare var jquery: any;
 declare var $: any;
 declare var blocks: any;
@@ -22,56 +24,27 @@ export class EditPageComponent implements OnInit {
   private comptext: string;
   private mc: EditPageComponent;
 private pageid:any;
+public headers:Array<IComponent>;
+public contents:Array<IComponent>;
+public footers:Array<IComponent>;
 //private route:ActivatedRoute;
   usereditpage = '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h18">Head1</h1><p id="h17">Welcome to sample site</p></div><div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h16">Head1</h1><p id="h15">Welcome to sample site</p></div>'
-  headers = [
-    {
-      'id': 'b1',
-      'src': 'assets/images/blockimages/C1.PNG',
-      'htmlsrc': 't1',
-      'template': '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div>'
-    },
-    {
-      'id': 'b2',
-      'src': 'assets/images/blockimages/Capture.PNG',
-      'htmlsrc': 't2',
-      'template': '123'
-    }
-  ]
   
-  contents = [
-    {
-      'id': 'b1',
-      'src': 'assets/images/blockimages/C1.PNG',
-      'htmlsrc': 't1',
-      'template': '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">This is the content</p></div>'
-    },
-    {
-      'id': 'b2',
-      'src': 'assets/images/blockimages/Capture.PNG',
-      'htmlsrc': 't2',
-      'template': '123'
-    }
-  ]
+  
+ 
+constructor(private route: ActivatedRoute,public components:ComponentService) {
 
-  footers = [
-    {
-      'id': 'b1',
-      'src': 'assets/images/blockimages/C1.PNG',
-      'htmlsrc': 't1',
-      'template': '<div style="max-width:100%; border:1px solid black;margin:0.5em;"><h1 id="h12">Head1</h1><p id="h13">Welcome to sample site</p></div>'
-    },
-    {
-      'id': 'b2',
-      'src': 'assets/images/blockimages/Capture.PNG',
-      'htmlsrc': 't2',
-      'template': '123'
-    }
-  ]
+  components.getComponentWithType("headers").subscribe(x => {this.headers = x;
+    console.log(this.headers);
+  });
+  components.getComponentWithType("contents").subscribe(x => {this.contents = x;
+    console.log(this.contents);
+  });
+  components.getComponentWithType("footers").subscribe(x => {this.footers = x;
+    console.log(this.footers);
+  });
 
-constructor(
-  private route: ActivatedRoute,
-) { }
+ }
   ngOnInit() {
     this.pageid=this.route.snapshot.paramMap.get('id');
     console.log(this.pageid);  
