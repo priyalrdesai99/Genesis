@@ -1,142 +1,90 @@
 <app-nav></app-nav>
 <div class="cotainer-fluid">
-<!-- 
-<br style="border:1px solid #17cad4; margin:0,0; padding:0,0;"/>
 
-<nav style="border:1px solid #17cad4; margin:5,2; padding:1,1;">
-    <div class="nav nav-tabs bg-dark" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-    </div>
-</nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-  </div> -->
-
-
-<!-- <ul class="nav nav-pills nav-stacked flex-column bg-dark navbar-dark" style="position:fixed;height:100%;width:10%;padding-top:15%;display:none">
-    <li class="nav-item text-light">
-        <a class="nav-link active bg-info text-light" href="#">Blocks</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-light" href="#">Header</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-light" href="#">Footer</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Content</a>
-    </li>
-</ul> -->
-<ul class="nav nav-pills nav-stacked flex-column bg-light" style="position: fixed; height:100%;width:15%; padding-top:3%; z-index: -2;">
-    <li class="nav-item text-light">
-        //toggle
-    </li>
-    <li class="nav-item" *ngFor="let block of blocks">
-    <div id="blocks" >
-
-        <img id="{{block.id}}" src="{{block.src}}" style="max-width: 90%; height:5em;"  alt='{{block.htmlsrc}}' draggable="true" (dragstart)="drag($event)" >
-        <template id="{{block.htmlsrc}}">
-                {{block.template}}
-        </template>
-        
-    </div>
-    </li>
-    
-</ul> 
-
-
-<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
-    <div class="pagename" style="position:absolute;padding:0px; display:block; font-size:23px;">
-        Page Name
-    </div>
-    <div style="display:block; position:absolute; right:0px;   align-self:baseline;">
-        <a class="savebtn" href="#" role="button" style="padding:4px;margin-right:2rem;" onclick="save()">Save</a>
-        <a class="savebtn" href="#" role="button" style="padding:4px;margin-right:2rem;">Delete</a>
-    </div>
-    <br />
-    <br />
-    <hr />
-
-    
-        <div id="editpage" (drop)="drop($event)" (dragover)="allowDrop($event)" (dragleave)="allowDropOver($event)">
-                <div [style.background]="arrayColors['color1']"
-                (click)="selectedColor='color1'">something </div>
-                
-                
-                <div [style.background]="arrayColors['color2']"
-                (click)="selectedColor='color2'">something2 </div>
-        </div>
-        
-            <div class="menu" style="position: absolute;width:22%;z-index: 2; border:1px solid black;left:77%;height:auto;" >
-                
+        <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+              </button>
+              <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Enter Page Name</ng-template>
+                    <mat-form-field>
+                      <input matInput placeholder="Page Name" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Select Header</ng-template>
+                    <mat-form-field>
+            
+            
+                      <input matInput placeholder="Select Header" formControlName="secondCtrl" required>
+                     
+                      
+                    </mat-form-field>
+                    <div *ngFor="let i of headerList">
+                    <div class="card bg-dark text-white"  >
+                        <img src="{{i.img}}" class="card-img" (click)="headerSelected(i)" alt="...">
+            
+                      </div>
+                      <br>
+                    </div>
+                         <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup">
+                    <form [formGroup]="thirdFormGroup">
+                      <ng-template matStepLabel>Content</ng-template>
+                      <mat-form-field>
+                        <input matInput placeholder="Content" formControlName="thirdCtrl" required>
+                      </mat-form-field>
+                      <div *ngFor="let i of contentList">
+                          <div class="card bg-dark text-white"  >
+                              <img src="{{i.img}}" class="card-img" (click)="headerSelected(i)" alt="...">
                   
-
-                            <ul class="nav nav-pills nav-stacked flex-column bg-light navbar-right" style="position: relative;width:100%; height:100%; padding-top:3%; z-index: -2;">
-                                <li class="nav-item text-light">
-        
-                                    <div class="form-group text-dark">
-                                        <label for="inputName">  <h2>Selected Text:</h2></label>
-                                        <textarea rows="3" class="form-control" value="" name="text" id="inputName" placeholder="Hello"></textarea>
-
-                                    </div>
-                                </li>
-        
-                                <li class="nav-item dropdown">
-                                    <button class="nav-link btn  dropdown-toggle text-dark border" style="width:100%" href="#" id="fonts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                     <h4>   Fonts</h4>
-                                    </button>
-                                    <div class="dropdown-menu justify-content-center" aria-labelledby="navbarDropdown" style="z-index: 3; align-content: center;">
-                                        <div class="dropdown-item" style="position:relative;width:100%;">"Times New Roman"</div>
-                                        <div class="dropdown-item">Times</div>
-                                        <div class="dropdown-item">serif</div>
-        
-                                    </div>
-                                </li>
-        
-                                <li class="nav-item text-dark justify-content-center">
-                                        <h2>Allignment</h2><br>
-                                       <img src="/assets/images/left.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-                                      &nbsp;&nbsp;&nbsp; <img src="/assets/images/center.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-                                      &nbsp;&nbsp;&nbsp; <img src="/assets/images/right.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-                                    </li>   
-                                    <br>
-                                    <li class="nav-item text-dark">
-                                           <h2>Style:</h2><br>
-                                          <img src="/assets/images/bold.png" width="50px" height="50px" on-click="addItem()"> 
-                                          &nbsp;&nbsp;&nbsp;  <img src="/assets/images/italic.jpg" width="50px" height="50px" on-click="addItem()" > 
-                                          &nbsp;&nbsp;&nbsp;  <img src="/assets/images/underline.png" width="50px" height="50px" on-click="addItem()"> 
-                                       </li>
-        
-                                
-
-                                <li class="nav-item text-dark">
-                                        <!-- <div class="col-md-5">
-                                                <input [style.background]="color1" [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
-                                              </div> -->
-                                              {{color1}}
-                                              <h2>Color:</h2>
-                                              <span [style.background]="arrayColors[selectedColor]"
-      [cpToggle]="true"
-      [cpDialogDisplay]="'inline'"
-      [cpCancelButton]="true"
-      [(colorPicker)]="arrayColors[selectedColor]"></span>
-                                </li>
-
-                            
-                            </ul>
-                        
-
-            </div>
-      <div style="display: block;position: absolute;top:40em; visibility: hidden;">
-            <br>
-            as
-      </div>          
-</div>
-<br>
-<br>
-<br>
+                            </div>
+                            <br>
+                          </div>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                  <mat-step [stepControl]="fourthFormGroup">
+                    <form [formGroup]="fourthFormGroup">
+                      <ng-template matStepLabel>Select Footer</ng-template>
+                      <mat-form-field>
+                        <input matInput placeholder="Footer" formControlName="fourthCtrl" required>
+                      </mat-form-field>
+                      <div *ngFor="let i of footerList">
+                          <div class="card bg-dark text-white"  >
+                              <img src="{{i.img}}" class="card-img" (click)="headerSelected(i)" alt="...">
+                  
+                            </div>
+                            <br>
+                          </div>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  You are now done.
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
+              
 </div>
