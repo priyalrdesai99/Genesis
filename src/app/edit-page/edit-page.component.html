@@ -1,77 +1,268 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <app-nav></app-nav>
 <div class="cotainer-fluid">
-<!-- 
-<br style="border:1px solid #17cad4; margin:0,0; padding:0,0;"/>
-
-<nav style="border:1px solid #17cad4; margin:5,2; padding:1,1;">
-    <div class="nav nav-tabs bg-dark" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-    </div>
-</nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-  </div> -->
 
 
-  <!-- <ul class="nav nav-pills nav-stacked flex-column bg-dark navbar-dark" style="position:fixed;height:100%;width:10%;padding-top:15%;display:none">
-    <li class="nav-item text-light">
-        <a class="nav-link active bg-info text-light" href="#">Blocks</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-light" href="#">Header</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-light" href="#">Footer</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Content</a>
-    </li>
-</ul> -->
-  <ul class="nav nav-pills nav-stacked flex-column bg-light"
-    style="position: fixed; height:100%;width:15%; padding-top:3%; z-index: -2;">
-    <li class="nav-item text-light">
-      //toggle
-    </li>
-    <li class="nav-item" *ngFor="let block of blocks">
-      <div id="blocks">
-
-        <img id="{{block.id}}" src="{{block.src}}" style="max-width: 90%; height:5em;" alt='{{block.htmlsrc}}'
-          draggable="true" (dragstart)="drag($event)">
-        <template id="{{block.htmlsrc}}">
-          {{block.template}}
-        </template>
-
-      </div>
-    </li>
-
-  </ul>
-
-
+  
   <div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+      
     <div class="pagename" style="position:absolute;padding:0px; display:block; font-size:23px;">
       Page Name
     </div>
     <div style="display:block; position:absolute; right:0px;   align-self:baseline;">
       <a class="savebtn" href="#" role="button" style="padding:4px;margin-right:2rem;" (click)="save()">Save</a>
       <a class="savebtn" href="#" role="button" style="padding:4px;margin-right:2rem;">Delete</a>
+      <br>
+      <a class="savebtn" href="#" role="button" style="padding:4px;margin-right:2rem;">Download</a>
     </div>
+
+
     <br />
   
     <br />
     <hr />
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Headers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Content</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Footers</a>
+        </li>
+      </ul>
+      <br>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
+            <div id="multi-item-example3" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+                
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox" >
+              
+                  <!--First slide-->
+                  
+                  <div class="carousel-item" *ngFor="let block of headers; index as i" [ngClass]="{'active':i==0}">
+              
+                    <div class="col-md-12 mb-12">
+                      <div class="card">
+                          <img class="img-fluid" id="{{block.id}}" src="{{block.src}}" style="width:8em; height:5em;" alt='{{block.htmlsrc}}'
+                          draggable="true" (dragstart)="drag($event)">
+                        <template id="{{block.htmlsrc}}">
+                          {{block.template}}
+                        </template>
+                
+                      </div>
+                    </div>
+              
+              
+                  </div>
+                  
+              </div>
+              <div class="controls-top" style="max-width: 100%;height:2em;">
+                  <a class="text-info justify-content-center" style="position:absolute; left:48%;" href="#multi-item-example3" data-slide="prev"><i class="fa fa-angle-left fa-2x pr-2"></i></a>
+                  <a class="text-info justify-content-center" style="position:absolute; left:52%;" href="#multi-item-example3" data-slide="prev"><i class="fa fa-angle-right fa-2x pr-2"></i></a>
+                </div>
+        </div>
+
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div id="multi-item-example2" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+                
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox" >
+              
+                  <!--First slide-->
+                  
+                  <div class="carousel-item" *ngFor="let block of contents; index as i" [ngClass]="{'active':i==0}">
+              
+                    <div class="col-md-12 mb-12">
+                      <div class="card">
+                          <img class="img-fluid" id="{{block.id}}" src="{{block.src}}" style="width:8em; height:5em;" alt='{{block.htmlsrc}}'
+                          draggable="true" (dragstart)="drag($event)">
+                        <template id="{{block.htmlsrc}}">
+                          {{block.template}}
+                        </template>
+                
+                      </div>
+                    </div>
+              
+              
+                  </div>
+                  
+              </div>
+              <div class="controls-top" style="max-width: 100%;height:2em;">
+                  <a class="text-info justify-content-center" style="position:absolute; left:48%;" href="#multi-item-example2" data-slide="prev"><i class="fa fa-angle-left fa-2x pr-2"></i></a>
+                  <a class="text-info justify-content-center" style="position:absolute; left:52%;" href="#multi-item-example2" data-slide="prev"><i class="fa fa-angle-right fa-2x pr-2"></i></a>
+                </div>
+        </div>
+      </div>
+      
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+                
+                
+              
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox" >
+              
+                  <!--First slide-->
+                  
+                  <div class="carousel-item" *ngFor="let block of footers; index as i" [ngClass]="{'active':i==0}">
+              
+                    <div class="col-md-12 mb-12">
+                      <div class="card">
+                          <img class="img-fluid" id="{{block.id}}" src="{{block.src}}" style="width:8em; height:5em;" alt='{{block.htmlsrc}}'
+                          draggable="true" (dragstart)="drag($event)">
+                        <template id="{{block.htmlsrc}}">
+                          {{block.template}}
+                        </template>
+                
+                      </div>
+                    </div>
+              
+              
+                  </div>
+                  <!--/.First slide-->
+              
+                  <!--Second slide-->
+                  
+                <!--/.Slides-->
+              
+              </div>
+
+              <div class="controls-top" style="max-width: 100%;height:2em;">
+                  <a class="text-info justify-content-center" style="position:absolute; left:48%;" href="#multi-item-example" data-slide="prev"><i class="fa fa-angle-left fa-2x pr-2"></i></a>
+                  <a class="text-info justify-content-center" style="position:absolute; left:52%;" href="#multi-item-example" data-slide="prev"><i class="fa fa-angle-right fa-2x pr-2"></i></a>
+                </div>
+        </div>
+      </div>  
+  </div>
+  <hr>
+  <br>
+  <br>
 
     <div id="editpage" (drop)="drop($event)" (dragover)="allowDrop($event)" (dragleave)="allowDropOver($event)">
     
       
     </div>
 
-    <div class="menu" style="position: absolute;width:22%;border:1px solid black;left:77%;height:auto;">
-      Menu
+    <div class="bg-light" style="position: absolute;width:22%;left:77%;border-radius: 1.0px;">
+     <div class="">
+      
+  </div>
+  <div class="">
+      <form (keydown.enter)="$event.preventDefault()">
+          
+          <div class="angular-editor-toolbar">
+              <p class="lead text-info" >
+                  <br>  
+                  Toolkit
+                </p>
+              <textarea class="form-control" (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
+              <br>
+              <div class="angular-editor-toolbar-set">
+                <button [id]="'bold-'+id" type="button" title="Bold" class="angular-editor-button" (click)="boldclicked()"
+                        [disabled]="htmlMode" tabindex="-1"><i class='fa fa-bold'></i></button>
+                <button [id]="'italic-'+id" type="button" title="Italic" class="angular-editor-button"
+                        (click)="italicclicked()"
+                        [disabled]="htmlMode" tabindex="-1"><i class='fa fa-italic'></i></button>
+                <button [id]="'underline-'+id" type="button" title="Underline" class="angular-editor-button"
+                        (click)="underlineclicked()" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-underline'></i></button>
+                <!-- <button [id]="'strikeThrough-'+id" type="button" title="Strikethrough" class="angular-editor-button"
+                        (click)="triggerCommand('strikeThrough')" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-strikethrough'></i></button> -->
+                <!-- <button [id]="'subscript-'+id" type="button" title="Subscript" class="angular-editor-button"
+                        (click)="triggerCommand('subscript')" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-subscript'></i></button>
+                <button [id]="'superscript-'+id" type="button" title="Superscript" class="angular-editor-button"
+                        (click)="triggerCommand('superscript')" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-superscript'></i></button> -->
+              </div>
+              <div class="angular-editor-toolbar-set">
+                <button [id]="'justifyLeft-'+id" type="button" title="Justify Left" class="angular-editor-button"
+                        (click)="alignclicked('left')" [disabled]="htmlMode" tabindex="-1"><i
+                  class='fa fa-align-left'></i></button>
+                <button [id]="'justifyCenter-'+id" type="button" title="Justify Center" class="angular-editor-button"
+                        (click)="alignclicked('center')" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-align-center'></i></button>
+                <button [id]="'justifyRight-'+id" type="button" title="Justify Right" class="angular-editor-button"
+                        (click)="alignclicked('right')" [disabled]="htmlMode" tabindex="-1">
+                  <i class='fa fa-align-right'></i></button>
+                <!-- <button [id]="'justifyFull-'+id" type="button" title="Justify Full" class="angular-editor-button"
+                        (click)="triggerCommand('justifyFull')" [disabled]="htmlMode" tabindex="-1"><i
+                  class='fa fa-align-justify'></i></button> -->
+              </div>
+              
+              <!-- <div class="angular-editor-toolbar-set">
+            
+                <ae-select class="select-font" [options]="fonts"
+                           [(ngModel)]="fontName"
+                           (change)="setFontName(fontName)"
+                           [disabled]="htmlMode"
+                           tabindex="-1"></ae-select>
+              </div> -->
+              <!-- <div class="angular-editor-toolbar-set">
+            
+                <ae-select class="select-font-size" [options]="fontSizes"
+                           [(ngModel)]="fontSize"
+                           (change)="setFontSize(fontSize)"
+                           [disabled]="htmlMode"
+                           tabindex="-1">
+                </ae-select>
+              </div> -->
+              <br>
+              <div class="angular-editor-toolbar-set">
+                <input
+                  style="display: none"
+                  type="color" (change)="insertColor(fgInput.value, 'textColor')"
+                  #fgInput>
+                <button [id]="'foregroundColorPicker-'+id" type="button" class="angular-editor-button" (click)="fgInput.click()" title="Text Color"
+                        [disabled]="htmlMode" tabindex="-1"><span class="color-label foreground"><i class="fa fa-font"></i></span></button>
+                <input
+                  style="display: none"
+                  type="color" (change)="insertColor(bgInput.value, 'backgroundColor')"
+                  #bgInput>
+                <button [id]="'backgroundColorPicker-'+id" type="button" class="angular-editor-button" (click)="bgInput.click()" title="Background Color"
+                        [disabled]="htmlMode" tabindex="-1"><span class="color-label background"><i class="fa fa-font"></i></span></button>
+              </div>
+              <!-- <div class="angular-editor-toolbar-set">
+                <button [id]="'link-'+id" type="button" class="angular-editor-button" (click)="insertUrl()"
+                        title="Insert Link" [disabled]="isLinkButtonDisabled" tabindex="-1">
+                  <i class="fa fa-link"></i>
+                </button>
+                <button [id]="'unlink-'+id" type="button" class="angular-editor-button" (click)="triggerCommand('unlink')"
+                        title="Unlink" [disabled]="htmlMode || !linkSelected" tabindex="-1">
+                  <i class="fa fa-chain-broken"></i>
+                </button>
+                <input
+                  style="display: none"
+                  accept="image/*"
+                  type="file" (change)="onFileChanged($event)"
+                  #fileInput>
+                <button [id]="'insertImage-'+id" type="button" class="angular-editor-button" (click)="fileInput.click()" title="Insert Image"
+                        [disabled]="htmlMode" tabindex="-1"><i class="fa fa-image"></i></button>
+                <button [id]="'insertVideo-'+id" type="button" class="angular-editor-button"
+                        (click)="insertVideo()" title="Insert Video" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-video-camera"></i></button>
+                <button [id]="'insertHorizontalRule-'+id" type="button" title="Horizontal Line" class="angular-editor-button"
+                        (click)="triggerCommand('insertHorizontalRule')" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-minus"></i></button>
+              </div>
+              <div class="angular-editor-toolbar-set">
+                <button [id]="'clearFormatting-'+id" type="button" title="Clear Formatting" class="angular-editor-button"
+                        (click)="triggerCommand('removeFormat')" [disabled]="htmlMode" tabindex="-1"><i class='fa fa-remove'></i></button>
+              </div>
+              <div class="angular-editor-toolbar-set">
+                <button [id]="'toggleEditorMode-'+id" type="button" title="HTML Code" class="angular-editor-button"
+                        (click)="triggerCommand('toggleEditorMode')" tabindex="-1"><i class='fa fa-code'></i></button>
+              </div> -->
+            </div>
+            <input type="hidden" [(ngModel)]="clicked" id="clickedele">               
+        </form>
+      
+      </div>
+      
       <!-- <ul class="nav nav-pills nav-stacked flex-column bg-light navbar-right" style="position: relative;width:100%; height:100%; padding-top:3%; z-index: -2;">
         <li class="nav-item text-light">
 
@@ -112,7 +303,7 @@
 
       
 
-<ul >
+<!-- <ul >
 <li>
   <form (keydown.enter)="$event.preventDefault()">
     <textarea (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
@@ -120,6 +311,7 @@
   </li>
   <li>
       <input type="button" (click)="boldclicked()" value="B">
+      <input type="button" (click)="italicclicked()" value="I" style="font-style: italic;">
     </li>
     <li>
       <input type="button" (click)="underlineclicked()" value="U" style="text-decoration: underline;">
@@ -139,10 +331,10 @@
       
       <br>
       <br>
-      <input type="button" (click)="italicclicked()" value="I" style="font-style: italic;">
+      
     </li>
     <li>
-      <input type="hidden" [(ngModel)]="clicked" id="clickedele">
+     
     </li>
     </ul>
     </div>
@@ -154,11 +346,6 @@
   <br>
   <br>
   <br>
-</div>
+</div> -->
 
-<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script>
-var ele=angular.element( document.querySelector( '#divID' ) );
-ele.append('{{usereditpage}}');
-console.log("i'm here");
-  </script> -->
+
