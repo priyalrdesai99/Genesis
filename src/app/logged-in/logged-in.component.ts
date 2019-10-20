@@ -16,8 +16,9 @@ export class LoggedInComponent implements OnInit {
   username:string;
   user_id:number;
   pages:Array<IPage>;
+  pageid:number;
   constructor(user:UserServiceService,public page:PageService) {
-   
+    
     user.getUserWithId(localStorage.getItem('fullname')).subscribe(x => {this.userdata=x;
     this.username=this.userdata.name;
     this.user_id=this.userdata._id;
@@ -30,6 +31,13 @@ export class LoggedInComponent implements OnInit {
    }
 
   ngOnInit() {
+    
   }
-
+  delete(event:any)
+  {
+    
+    this.pageid=event.target.value;
+    this.page.deletePage(this.pageid).subscribe(x => x);
+    window.location.href='/loggedin';
+  }
 }

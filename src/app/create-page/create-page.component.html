@@ -86,7 +86,7 @@
                   </mat-step>
                 <mat-step>
                   <ng-template matStepLabel>Done</ng-template>
-                  You are now done.
+                  <button type="button" class="btn btn-outline-info" (click)="create()">Create</button>
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>

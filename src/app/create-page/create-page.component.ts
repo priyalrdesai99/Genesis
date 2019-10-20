@@ -5,6 +5,11 @@ import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
 declare var jquery: any;
 declare var $: any;
+import { ComponentService } from '../component.service';
+import { PageService } from '../page.service';
+import { IPage } from 'src/IPage';
+import { UserServiceService } from '../user-service.service';
+import { IFUser } from 'src/IFUser';
 
 export interface Food {
    value: string;
@@ -21,24 +26,47 @@ export class CreatePageComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup:FormGroup;
   fourthFormGroup:FormGroup;
-  header_selected:any;
-  content_selected:any;
-  footer_selected:any;
-  public headerList=[{'id':'b1','src':'assets/images/blockimages/C1.png','htmlsrc':'t1','template':'<div><h1>Hello</h1></div>'},
-  {'id':'b2','src':'assets/images/blockimages/C1.png','htmlsrc':'t2','template':'<div><h1>Hello</h1></div>'},
-  {'id':'b3','src':'assets/images/blockimages/C1.png','htmlsrc':'t3','template':'<div><h1>Hello</h1></div>'}];
-  public footerList=[{'id':'f1','src':'assets/images/blockimages/C1.png','htmlsrc':'t4','template':'<div><h1>Hello</h1></div>'},
-  {'id':'f2','src':'assets/images/blockimages/C1.png','htmlsrc':'t5','template':'<div><h1>Hello</h1></div>'},
-  {'id':'f3','src':'assets/images/blockimages/C1.png','htmlsrc':'t6','template':'<div><h1>Hello</h1></div>'}];
-  public contentList=[{'id':'c1','src':'assets/images/blockimages/C1.png','htmlsrc':'t7','template':'<div><h1>Hello</h1></div>'},
-  {'id':'c2','src':'assets/images/blockimages/C1.png','htmlsrc':'t8','template':'<div><h1>Hello</h1></div>'},
-  {'id':'c3','src':'assets/images/blockimages/C1.png','htmlsrc':'t9','template':'<div><h1>Hello</h1></div>'}];
-  constructor(private _formBuilder: FormBuilder) {
+  public headerList:any;
+  public footerList:any;
+  public contentList:any;
+  public length:number;
+  public id:any;
+  public pages:Array<IPage>;
+  public user_id:number;
+  public user_data:IFUser;
+  public p:IPage;
+  public h:string;
+  public header_selected:any;
+  public content_selected:any;
+  public footer_selected:any;
+  constructor(private _formBuilder: FormBuilder,public components:ComponentService,public page:PageService,public user:UserServiceService) {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
+      
+   });
+   this.h="hello";
+   components.getComponentWithType("headers").subscribe(x => {this.headerList = x;
+      console.log(this.headerList);
+    });
+    components.getComponentWithType("contents").subscribe(x => {this.contentList = x;
+      console.log(this.contentList);
+    });
+    components.getComponentWithType("footers").subscribe(x => {this.footerList = x;
+      console.log(this.footerList);
+    });
+
+    page.getPages().subscribe(x => {this.pages=x ;
+      this.length=this.pages.length-1;
+      this.id=this.pages[this.length]._id+1;
+      user.getUserWithId(localStorage.getItem('fullname')).subscribe(x => {this.user_data=x;
+         
+         this.user_id=this.user_data._id;
+         console.log("User_id:"+this.user_id);
+         
    });
 
-  }
+  });
+}
   ngOnInit() {
      this.firstFormGroup = this._formBuilder.group({
         firstCtrl: ['', Validators.required]
@@ -91,5 +119,16 @@ createpage(){
 
   var pagehtml=this.header_selected.template+this.content_selected.template+this.footer_selected.template;
   console.log(pagehtml);
+  this.p =
+   {
+      _id:this.id,
+      name:this.firstFormGroup.get("firstCtrl").value,
+      user_id:this.user_id,
+      content:pagehtml 
+
+   }
+   
+   this.page.postPage(this.p).subscribe(x => {console.log(x);
+   });
 }
 }

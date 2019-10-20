@@ -22,7 +22,7 @@ Page
         <a role="button" class="btn btn-outline-info" href="/editpage/{{page._id}}">Edit</a>
     </td>
     <td>
-        <button type="button" class="btn btn-outline-info" (click)="deletepage()">Delete</button>
+        <button type="button" class="btn btn-outline-info" (click)="delete($event)" value="{{page._id}}">Delete</button>
     </td>
 </tr>
 </table>
