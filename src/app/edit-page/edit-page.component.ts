@@ -47,7 +47,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
     
   user.getUserWithId(localStorage.getItem('fullname')).subscribe(x => {this.user_data=x;
     this.user_id=this.user_data._id;
-  pages.getPageWithId(this.pageid,this.user_id).subscribe(x => { this.page=x;
+  pages.getPageWithId(this.user_id,this.pageid).subscribe(x => { this.page=x;
       this.pname=this.page.name;
       console.log(this.page.content);
       this.usereditpage=this.page.content;
