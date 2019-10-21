@@ -72,11 +72,14 @@ export class HomeComponent implements OnInit {
     if (this.user[0]) {
       localStorage.setItem('fullname', this.user[0].email);
       this.error = false;
-      this.router.navigate(['/loggedin']);
+     // this.router.navigate(['/loggedin']);
+     window.location.href='/loggedin';
      } else {
       this.error = true;
       this.errormsg = 'Invalid Username/Password';
       }
     });
+
+    
   }
 }
