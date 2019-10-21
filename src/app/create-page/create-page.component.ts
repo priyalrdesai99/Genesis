@@ -130,5 +130,7 @@ createpage(){
    
    this.page.postPage(this.p).subscribe(x => {console.log(x);
    });
+
+   window.location.href='/editpage/'+this.id;
 }
 }

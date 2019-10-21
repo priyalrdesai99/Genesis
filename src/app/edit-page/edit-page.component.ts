@@ -115,7 +115,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
     this.comptext = "";
     this.mc = this;
     this.clicked = '0';
-    document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);
+    
     $(document).ready(function () {
       console.log("hello");
 
