@@ -3,6 +3,8 @@ import { FormControl } from "@angular/forms";
 import { FormGroup } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
+declare var jquery: any;
+declare var $: any;
 import { ComponentService } from '../component.service';
 import { PageService } from '../page.service';
 import { IPage } from 'src/IPage';
@@ -34,6 +36,9 @@ export class CreatePageComponent implements OnInit {
   public user_data:IFUser;
   public p:IPage;
   public h:string;
+  public header_selected:any;
+  public content_selected:any;
+  public footer_selected:any;
   constructor(private _formBuilder: FormBuilder,public components:ComponentService,public page:PageService,public user:UserServiceService) {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -78,33 +83,52 @@ export class CreatePageComponent implements OnInit {
  });
   }
 
-  create()
-  {
-   this.p =
+  headerSelected(i,event){
+     console.log(i);
+this.header_selected=i;
+$("#headers *").css('opacity','1.0');
+ 
+ event.target.style.opacity=0.5;
+  }
+  
+  footerSelected(i,event){
+   console.log(i);
+this.footer_selected=i;
+$("#footers *").css('opacity','1.0');
+ 
+ event.target.style.opacity=0.5;
+
+}
+
+contentSelected(i,event){
+   console.log(i);
+this.content_selected=i;
+var contents=document.getElementById("contents");
+
+ $("#contents *").css('opacity','1.0');
+ 
+ event.target.style.opacity=0.5;
+}
+
+createpage(){
+  console.log(this.firstFormGroup.get("firstCtrl").value);
+  
+  console.log("header"+this.header_selected);
+  console.log("footer"+this.footer_selected);
+  console.log("content"+this.content_selected);
+
+  var pagehtml=this.header_selected.template+this.content_selected.template+this.footer_selected.template;
+  console.log(pagehtml);
+  this.p =
    {
       _id:this.id,
-      name:"Hello",
+      name:this.firstFormGroup.get("firstCtrl").value,
       user_id:this.user_id,
-      content:"<h1>Hello<h1>" 
+      content:pagehtml 
 
    }
    
    this.page.postPage(this.p).subscribe(x => {console.log(x);
    });
-  }
-
-  headerSelected(i){
-     console.log(i);
-
-  }
-  
-  footerSelected(i){
-   console.log(i);
-
-}
-
-contentSelected(i){
-   console.log(i);
-
 }
 }

@@ -1,5 +1,6 @@
-
-<div class="cotainer-fluid">
+<app-nav></app-nav>
+<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+<div class="cotainer-fluid" >
 
         <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
                 {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
@@ -22,17 +23,19 @@
                     <mat-form-field>
             
             
-                      <input matInput placeholder="Select Header" formControlName="secondCtrl" required>
+                      <input matInput placeholder="Select Header" formControlName="secondCtrl">
                      
                       
                     </mat-form-field>
+                    <div id="headers">
                     <div *ngFor="let i of headerList">
                     <div class="card bg-dark text-white"  >
-                        <img src="{{i.src}}" class="card-img" (click)="headerSelected(i)" alt="...">
+                        <img src="{{i.src}}" class="card-img" (click)="headerSelected(i,$event)" alt="...">
             
                       </div>
                       <br>
                     </div>
+                  </div>
                          <div>
                       <button mat-button matStepperPrevious>Back</button>
                       <button mat-button matStepperNext>Next</button>
@@ -43,15 +46,17 @@
                     <form [formGroup]="thirdFormGroup">
                       <ng-template matStepLabel>Content</ng-template>
                       <mat-form-field>
-                        <input matInput placeholder="Content" formControlName="thirdCtrl" required>
+                        <input matInput placeholder="Select Content" formControlName="thirdCtrl" required>
                       </mat-form-field>
+                      <div id="contents">
                       <div *ngFor="let i of contentList">
                           <div class="card bg-dark text-white"  >
-                              <img src="{{i.src}}" class="card-img" (click)="headerSelected(i)" alt="...">
+                              <img src="{{i.src}}" class="card-img" (click)="contentSelected(i,$event)" alt="...">
                   
                             </div>
                             <br>
                           </div>
+                        </div>
                       <div>
                         <button mat-button matStepperPrevious>Back</button>
                         <button mat-button matStepperNext>Next</button>
@@ -64,13 +69,15 @@
                       <mat-form-field>
                         <input matInput placeholder="Footer" formControlName="fourthCtrl" required>
                       </mat-form-field>
+                      <div>
                       <div *ngFor="let i of footerList">
                           <div class="card bg-dark text-white"  >
-                              <img src="{{i.src}}" class="card-img" (click)="headerSelected(i)" alt="...">
+                              <img src="{{i.src}}" class="card-img" (click)="footerSelected(i,$event)" alt="...">
                   
                             </div>
                             <br>
                           </div>
+                        </div>
                       <div>
                         <button mat-button matStepperPrevious>Back</button>
                         <button mat-button matStepperNext>Next</button>
@@ -83,8 +90,11 @@
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
+                    <br>
+                    <button mat-button (click)="createpage()">Create Page</button>
                   </div>
                 </mat-step>
               </mat-horizontal-stepper>
               
+</div>
 </div>
