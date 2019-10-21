@@ -48,6 +48,12 @@ function mongoConnected() {
 		type:String
 	}, {collection : 'component'});
 
+	var feedbackSchema = new mongoose.Schema({
+		_id:Number,
+		user_id:Number,
+		feed:String
+	},{collection : 'feedback'});
+
 	var pageSchema =  new mongoose.Schema({
 		_id:Number,
 		user_id:Number,
@@ -61,6 +67,7 @@ function mongoConnected() {
 	var user = mongoose.model("user", usersSchema);
 	var Comp= mongoose.model("component", compSchema);
     var Page = mongoose.model("page", pageSchema);
+	var Feed = mongoose.model("feedback", feedbackSchema);
 	
 	app.get("/user", (req, res) => {
 		user.find( function(err,users) {
@@ -78,7 +85,39 @@ function mongoConnected() {
 	});
 	
 	app.get("/page", (req, res) => {
-		Page.find( function(err,pages) {
+		Page.find(function(err,pages) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find pages");
+			}
+			else {
+				console.log("All pages returned");
+				console.log(pages)
+				
+				res.send(pages);
+			}
+		});
+	});
+   
+	app.get("/feedback", (req, res) => {
+		Feed.find(function(err,f) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find pages");
+			}
+			else {
+				console.log("All feedbacks returned");
+				console.log(f);
+				
+				res.send(f);
+			}
+		});
+	});
+
+
+
+	app.get("/page/:user_id", (req, res) => {
+		Page.find({"user_id":req.params.user_id}, function(err,pages) {
 			if (err) {
 				res.status(400);
 				res.send("Unable to find pages");
@@ -92,17 +131,16 @@ function mongoConnected() {
 		});
 	});
 
-	app.get("/page/:user_id", (req, res) => {
-		Page.find({"user_id":req.params.user_id}, function(err,pages) {
+	app.get("/feedback/:user_id", (req, res) => {
+		Feed.find({"user_id":req.params.user_id}, function(err,feeds) {
 			if (err) {
 				res.status(400);
-				res.send("Unable to find pages");
+				res.send("Unable to find");
 			}
 			else {
 				console.log("All pages returned");
-				console.log(pages)
-				
-				res.send(pages);
+				console.log(feeds);
+				res.send(feeds);
 			}
 		});
 	});
@@ -221,8 +259,6 @@ function mongoConnected() {
 	});
 	
     app.delete("/page/:id", (req, res) => {
-		//console.log("req.params.id");
-		//console.log(req.params.id);
 		Page.findById( req.params.id, function(err, page) {
 			if (err) {
 				res.status(400);
@@ -241,7 +277,26 @@ function mongoConnected() {
 			}
 		});
 	});
-
+   
+	app.delete("/feedback/:id", (req, res) => {
+		Feed.findById( req.params.id, function(err, f) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to find page");
+			}
+			else {
+				f.remove( function(err) {
+					if (err) {
+						console.log("Unable to remove feedback");
+						res.status(400);
+						res.send("Unable to remove feedback");
+					}
+					console.log("Feedback removed!");
+					res.send({"message" : "Feedback removed!"});
+				});
+			}
+		});
+	});
 
 	app.post("/user", (req, res) => {
 		console.log(req.body)
@@ -257,7 +312,24 @@ function mongoConnected() {
 			}
 		});
 	});
+
+
+	app.post("/feedback", (req, res) => {
+		console.log(req.body)
+		var myData = new Feed(req.body);
+		Feed.insertMany({_id:myData._id,user_id:myData.user_id,feed:myData.feed}, function(err) {
+			if (err) {
+				res.status(400);
+				res.send("Unable to add feedback");
+			}
+			else {	
+				console.log("Feedback added!");
+				res.send({ "message": "Feedback saved successfully"});
+			}
+		});
+	});
 	
+
 	app.post("/page", (req, res) => {
 		console.log(req.body)
 		var myData = new Page(req.body);

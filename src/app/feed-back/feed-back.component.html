@@ -1,1 +1,11 @@
-<p>feed-back works!</p>
+<app-nav></app-nav>
+<div class="card bg-light" style="margin-top:20%; margin-left: 20%;"  >
+    <div  *ngFor="let p of feeds">
+    Feed:{{p.feed}}
+    <button type="button" class="btn btn-outline-info" (click)="delete($event)" value="{{p._id}}">Delete</button>  
+</div>
+
+<textarea [(ngModel)]="newfeed"></textarea>
+<button type="button" class="btn btn-outline-info" (click)="give()" >Write New FeedBack</button>
+</div>
+

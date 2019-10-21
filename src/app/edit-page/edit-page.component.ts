@@ -115,7 +115,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
     this.comptext = "";
     this.mc = this;
     this.clicked = '0';
-    document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);
+    
     $(document).ready(function () {
       console.log("hello");
 
@@ -263,6 +263,7 @@ delete()
   drag(ev) {
 
     ev.dataTransfer.setData("text", ev.target.id);
+    console.log(ev.target.id);
   }
 
 
@@ -270,7 +271,7 @@ delete()
     currid++
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-
+console.log(data);
     var img1 = document.getElementById(data);
 
     var temp = document.getElementById(img1.getAttribute("alt"));
