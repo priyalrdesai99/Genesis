@@ -41,10 +41,10 @@
             <div id="multi-item-example3" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
 
                 
-                <!--Slides-->
+                
                 <div class="carousel-inner" role="listbox" >
               
-                  <!--First slide-->
+   
                   
                   <div class="carousel-item" *ngFor="let block of headers; index as i" [ngClass]="{'active':i==0}">
               
@@ -74,11 +74,10 @@
             <div id="multi-item-example2" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
 
                 
-                <!--Slides-->
+                
                 <div class="carousel-inner" role="listbox" >
               
-                  <!--First slide-->
-                  
+                 
                   <div class="carousel-item" *ngFor="let block of contents; index as i" [ngClass]="{'active':i==0}">
               
                     <div class="col-md-12 mb-12">
@@ -109,10 +108,9 @@
                 
                 
               
-                <!--Slides-->
+                
                 <div class="carousel-inner" role="listbox" >
               
-                  <!--First slide-->
                   
                   <div class="carousel-item" *ngFor="let block of footers; index as i" [ngClass]="{'active':i==0}">
               
@@ -129,11 +127,6 @@
               
               
                   </div>
-                  <!--/.First slide-->
-              
-                  <!--Second slide-->
-                  
-                <!--/.Slides-->
               
               </div>
 
@@ -192,9 +185,6 @@
                 <button [id]="'justifyRight-'+id" type="button" title="Justify Right" class="angular-editor-button"
                         (click)="alignclicked('right')" [disabled]="htmlMode" tabindex="-1">
                   <i class='fa fa-align-right'></i></button>
-                <!-- <button [id]="'justifyFull-'+id" type="button" title="Justify Full" class="angular-editor-button"
-                        (click)="triggerCommand('justifyFull')" [disabled]="htmlMode" tabindex="-1"><i
-                  class='fa fa-align-justify'></i></button> -->
               </div>
               
               <!-- <div class="angular-editor-toolbar-set">
@@ -267,80 +257,7 @@
       
       </div>
     
-      <!-- <ul class="nav nav-pills nav-stacked flex-column bg-light navbar-right" style="position: relative;width:100%; height:100%; padding-top:3%; z-index: -2;">
-        <li class="nav-item text-light">
-
-            <div class="form-group text-dark">
-                <label for="inputName">  <h2>Selected Text:</h2></label>
-                <textarea rows="3" class="form-control" value="" name="text" id="inputName" placeholder="Hello"></textarea>
-                
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <button class="nav-link btn  dropdown-toggle text-dark border" style="width:100%" href="#" id="fonts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-             <h4>   Fonts</h4>
-            </button>
-            <div class="dropdown-menu justify-content-center" aria-labelledby="navbarDropdown" style="z-index: 3; align-content: center;">
-                <div class="dropdown-item" style="position:relative;width:100%;">"Times New Roman"</div>
-                <div class="dropdown-item">Times</div>
-                <div class="dropdown-item">serif</div>
-
-            </div>
-        </li>
-
-        <li class="nav-item text-dark justify-content-center">
-                <h2>Allignment</h2><br>
-               <img src="/assets/images/left.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-              &nbsp;&nbsp;&nbsp; <img src="/assets/images/center.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-              &nbsp;&nbsp;&nbsp; <img src="/assets/images/right.png" width="50px" height="50px" on-click="addItem()" style="border: 2px solid;"> 
-            </li>   
-            <br>
-            <li class="nav-item text-dark">
-                   <h2>Style:</h2><br>
-                  <img src="/assets/images/bold.png" width="50px" height="50px" on-click="addItem()"> 
-                  &nbsp;&nbsp;&nbsp;  <img src="/assets/images/italic.jpg" width="50px" height="50px" on-click="addItem()" > 
-                  &nbsp;&nbsp;&nbsp;  <img src="/assets/images/underline.png" width="50px" height="50px" on-click="addItem()"> 
-               </li>
-    
-    </ul> -->
-
       
-
-<!-- <ul >
-<li>
-  
-    <textarea (keyup)="textchanged($event)" value="please select an element" id="comptextele"></textarea>
-  </form>
-  </li>
-  <li>
-      <input type="button" (click)="boldclicked()" value="B">
-      <input type="button" (click)="italicclicked()" value="I" style="font-style: italic;">
-    </li>
-    <li>
-      <input type="button" (click)="underlineclicked()" value="U" style="text-decoration: underline;">
-    </li>
-    <li>
-      <br>
-      <br>
-      <input type="button" (click)="alignclicked('left')" value="left">
-    </li>
-<li>
-      <input type="button" (click)="alignclicked('center')" value="center">
-    </li>
-    <li>
-      <input type="button" (click)="alignclicked('right')" value="right">
-    </li>
-    <li>
-      
-      <br>
-      <br>
-      
-    </li>
-    <li>
-     
-    </li>
-    </ul>
     </div>
     <div style="display: block;position: absolute;top:40em; visibility: hidden;">
       <br>
