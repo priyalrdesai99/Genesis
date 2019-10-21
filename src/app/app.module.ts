@@ -34,6 +34,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatStepperModule,MatInputModule } from '@angular/material';
 import { PlanService } from './plan.service';
 import { ViewplanComponent } from './viewplan/viewplan.component';
+import { DownloadComponent } from './download/download.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { ViewplanComponent } from './viewplan/viewplan.component';
     NavComponent,
     SidenavComponent,
     ViewplanComponent,
+    DownloadComponent,
     
     
     

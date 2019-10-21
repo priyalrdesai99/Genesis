@@ -14,6 +14,7 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { NavComponent } from './nav/nav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ViewplanComponent } from './viewplan/viewplan.component';
+import { DownloadComponent } from './download/download.component';
 
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
   {path:"nav",component:NavComponent},
   {path:"sidenav",component:SidenavComponent},
   {path:"viewplan",component:ViewplanComponent},
-  
+  {path:"download/:id",component:DownloadComponent},
 
 ];
 

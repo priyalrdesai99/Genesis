@@ -13,9 +13,6 @@ declare var $: any;
 declare var blocks: any;
 var currid: number;
 var targ: any;
-// var clicked:string;
-// var comptext:string;
-
 
 
 @Component({ 
@@ -54,16 +51,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
 
       document.getElementById('editpage').insertAdjacentHTML('beforeend', this.usereditpage);  
       $(document).ready(function () {
-        // $('#blocks img').attr("draggable", "true");
-        // $('#blocks img').attr("(ondragstart)", "drag(event)");
         $('#editpage *').css("position", "relative");
-  
-        //     $('#editpage').attr("ondrop", "drop(event)");
-        //     $('#editpage').attr("ondragover", "allowDrop(event)");
-        //     $('#editpage').attr("ondragleave", "allowDropOver(event)");
-        //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
-        //     // $('#editpage div').attr("onhover", "hover(event)");
-        //  $('#editpage div').attr("ondragover", "allowDrop(event)");
         $('#editpage div p,#editpage div :header').on('click', function () {
           console.log('hey there');
           console.log(this);
@@ -119,47 +107,7 @@ constructor(private route: ActivatedRoute,public components:ComponentService,pub
     $(document).ready(function () {
       console.log("hello");
 
-      // $('#blocks img').attr("draggable", "true");
-      // $('#blocks img').attr("(ondragstart)", "drag(event)");
-      $('#editpage *').css("position", "relative");
-
-      //     $('#editpage').attr("ondrop", "drop(event)");
-      //     $('#editpage').attr("ondragover", "allowDrop(event)");
-      //     $('#editpage').attr("ondragleave", "allowDropOver(event)");
-      //     $('#editpage div').attr("ondragleave", "allowDropOver(event)");
-      //     // $('#editpage div').attr("onhover", "hover(event)");
-      //  $('#editpage div').attr("ondragover", "allowDrop(event)");
-      $('#editpage div p,#editpage div :header').on('click', function () {
-        console.log('hey there');
-        console.log(this.id);
-
-        document.getElementById("clickedele").setAttribute("value", this.id);
-
-        var ele = document.getElementById(this.id);
-        console.log(ele);
-        if (typeof ele != null || typeof ele != undefined) {
-
-          if (ele.nodeType != 1) {
-            ele.childNodes.forEach(c => {
-              console.log(c);
-            });
-            alert("Cannot modify div and parent elements at the moment");
-          }
-          else {
-            var textele = document.getElementById("comptextele");
-            
-            textele.setAttribute("value",ele.textContent);
-            textele.textContent=ele.textContent;
-            console.log(textele);
-          }
-
-        }
-
-      });
-      $('#editpage div :header').on('click', function () {
-        console.log(this);
-      });
-    });
+   });
   }
   save() {
     console.log(document.getElementById("editpage").innerHTML);
@@ -346,32 +294,7 @@ console.log(data);
     });
 
   }
-  drope(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-
-    parent = ev.target.parentElement;
-    console.log("target");
-    console.log(ev.target.id);
-
-    if (event.target != document.getElementById("editpage")) {
-      document.getElementById("editpage").insertBefore(document.getElementById(data), ev.target);
-      console.log("other");
-    }
-    else {
-      document.getElementById("editpage").appendChild(document.getElementById(data));
-      //        document.getElementById("editpage").style("height","auto");
-      console.log("this");
-    }
-    // $('#editpage div').hover(function(event){
-    //     $(this).css("border","1px solid blue");
-    // },function(event){
-    //     $(this).css("border","0px solid blue");
-    // });
-
-
-  }
-
+ 
   
 
   giveID(ele) {
@@ -389,27 +312,25 @@ console.log(data);
     console.log(ele.id);
     currid++;
   }
-  function1(id) {
+  
 
-    console.log(id);
-    this.clicked = id;
+  textColor(rgb:any){
+    console.log('textcolorclicked' + rgb);
+    this.clicked = document.getElementById("clickedele").getAttribute("value");
     var ele = document.getElementById(this.clicked);
-    if (typeof ele != null || typeof ele != undefined) {
 
-      if (ele.nodeType != 1) {
-        ele.childNodes.forEach(c => {
-          console.log(c);
-        });
-        alert("Cannot modify div and parent elements at the moment");
-      }
-      else {
-        this.comptext = ele.textContent;
-      }
-
-    }
-    // curtext=document.getElementById('curtext');
-    // curtext.value=ele.innerHTML;
-    // curid=id;
+    ele.style.color = rgb;
   }
 
+  backgroundColor(rgb:any){
+    console.log('backgroundcolorclicked' + rgb);
+    this.clicked = document.getElementById("clickedele").getAttribute("value");
+    var ele = document.getElementById(this.clicked);
+
+    ele.style.backgroundColor = rgb;
+  }
+
+  downloadclicked(){
+    alert("The code for your page is displayed in a new tab. Please copy it into a .html file to make it your own.")
+  }
 }
