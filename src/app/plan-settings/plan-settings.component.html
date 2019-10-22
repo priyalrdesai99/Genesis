@@ -1,6 +1,44 @@
 <app-nav></app-nav>
-<br><br><br>
-<div class="card bg-dark text-dark" style="margin-left:20%; height:auto;">
+
+
+<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+    <h2 class="text-info" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; opacity: 0.80;">
+        Upgrade your plan here..
+          </h2>
+          
+    
+    
+    <br>
+    <br>
+    
+    <h6 class="lead">Available Plans</h6>
+    <table class="table table-striped table-hover">
+        <tr>
+        <th>
+    Name
+        </th>
+        <th>Storage</th>
+        <th>Time Duration</th>
+        <th>Price</th>
+        <th>Upgrade</th>
+    </tr>
+    <tr *ngFor="let p of plans">
+        <td>{{p.name}}</td>
+        <td>{{p.storage}}</td>
+        <td>{{p.time_duration}}</td>
+        <td>{{p.price}}</td>
+        
+        <td>
+            <button type="button" on-click="onformsubmit(p._id)" class="btn btn-outline-info" >Upgrade</button>
+        </td>
+    </tr>
+    </table>
+    <br>
+    <br>
+    
+    </div>
+
+<!-- <div class="card bg-dark text-dark" style="margin-left:20%; height:auto;">
     <div *ngFor="let p of plans">
         <div class="card-body">
 Select Plan:
@@ -18,4 +56,4 @@ Select Plan:
     </div>
 
 
-</div>
+</div> -->

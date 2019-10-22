@@ -1,11 +1,42 @@
-<app-nav></app-nav>
-<div class="card bg-light" style="margin-top:20%; margin-left: 20%;"  >
-    <div  *ngFor="let p of feeds">
-    Feed:{{p.feed}}
-    <button type="button" class="btn btn-outline-info" (click)="delete($event)" value="{{p._id}}">Delete</button>  
-</div>
 
-<textarea [(ngModel)]="newfeed"></textarea>
-<button type="button" class="btn btn-outline-info" (click)="give()" >Write New FeedBack</button>
-</div>
+<app-nav></app-nav>
+<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+  <h2 class="text-info" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; opacity: 0.80;;">
+      Your feedbacks..
+  </h2>
+  <br>
+  <br>
+  
+
+  <table class="table table-striped table-hover" style="width: 80%;">
+      <tr>
+      <th>
+  Feedback
+      </th>
+      <th>Delete</th>
+      
+  </tr>
+  <tr *ngFor="let f of feeds">
+    <td>{{f.feed}}</td>
+    
+    <td>
+        <button type="button" class="btn btn-outline-info" (click)="delete($event)" value="{{f._id}}">Delete</button>  
+    </td>
+</tr>
+  </table>
+  <br>
+  <br>
+  <textarea [(ngModel)]="newfeed" class="form-control" rows="5" style="width:80%; align-self:center;"></textarea>  
+  <br>
+<button type="button" class="btn btn-outline-info" (click)="give()" >Give FeedBack</button>
+ 
+  </div>
+
+
+    
+
+
+
+
+
 

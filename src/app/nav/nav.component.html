@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="width:100%; border-radius:0px; margin-bottom:0px; height:10%;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,15 +43,22 @@
 
  <a routerLink="../viewplan" href="#">Change Plan</a>
 </ul> -->
-<ul class="nav flex-column bg-light" style="position:fixed; width: 15%; height:100%;">
-    <br>
-    <br>
-    <br>
-    <li class="nav-item" *ngFor="let p of pages">
-        <a class="nav-link" href="/editpage/{{p._id}}">{{p.name}}</a>
+<ul class="nav flex-column bg-light" style="position:fixed; width: 15%; height:100%; padding-top: 3.9em;">
+    
+    <li class="nav-item text-info" >
+            <a class="text-info justify-content-center" href="/loggedin"><i class="fa fa-angle-right fa-1x pr-1"></i> Home</a>
 
-       
+    </li>
+    <li class="nav-item text-info" >
+            <a class="text-info justify-content-center" href="/createpage"><i class="fa fa-angle-right fa-1x pr-1"></i> Create new page</a>
+    </li>
+    
+    <li class="nav-item text-info" style="padding-bottom:0; margin-bottom: 0px;">
+            <p class="text-info justify-content-center"><i class="fa fa-angle-right fa-1x pr-1"></i> Your pages</p>
+    </li>
 
-        </li>
+    <li class="nav-item text-info" *ngFor="let p of pages">
+        <a class="nav-link text-info" href="/editpage/{{p._id}}"><i class="far fa-file"></i> {{p.name}}</a>
+    </li>
     
 </ul>

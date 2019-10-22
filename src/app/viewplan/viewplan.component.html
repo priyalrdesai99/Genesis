@@ -1,14 +1,41 @@
 <app-nav></app-nav>
 
-<br>
-<br>
-<br>
-<div class="container" style="margin-left: 20%;">
-<p> Name: {{plans.name}}</p>
-            <p>Storage: {{plans.storage}} </p>
-            <p>Time: {{plans.time_duration}} </p>
-            <p>Price: {{plans.price}} </p>
+<app-nav></app-nav>
+<div style="position:absolute; top:15%; left:17%; display:inline-block; right:0px;">
+  <h2 class="text-info" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; opacity: 0.80;">
+Your current plan is {{plans.name}}
+  </h2>
+  <br>
+  <br>
+  
 
-            <a class="nav-link text-light" href="../plansettings/" tabindex="-1" aria-disabled="true">Upgrade Plan</a>
-        </div>
+  <table class="table table-striped table-hover">
+      <tr>
+      <th>
+  Storage
+      </th>
+      <th>Time</th>
+      <th>Price</th>
+      
+  </tr>
+  <tr>
+      <td>{{plans.storage}}</td>
+      <td>
+          {{plans.time_duration}}
+      </td>
+      <td>
+          {{plans.price}}
+      </td>
+  </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <a role="button" class="btn btn-info btn-lg text-light" href="/plansettings">Change Plan</a>
+  </div>
+
+
+    
+
+
 
